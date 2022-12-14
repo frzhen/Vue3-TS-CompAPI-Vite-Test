@@ -12,6 +12,22 @@
   - `npm i -D vue-tsc@latest`
   - `npm i vue@latest`
 - First Run: `npm run dev`
+Note: 以上dependencies clone 项目后`npm i`就可以了。
+- #### install bulma
+  - `npm i bulma@latest`
+- #### install fontawesome
+  - `npm i @fortawesome/fontawesome-free@latest`
+- #### simple line icons
+  - `npm i simple-line-icons@latest`
+- 添加以上dependencies到`mian.ts`
+```typescript
+import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+import '../node_modules/simple-line-icons/css/simple-line-icons.css';
+import '../node_modules/bulma/css/bulma.min.css';
 
+```
 
+#### Git branches:
+- main: working project with official documentation
+- dev(default): development branch
 
