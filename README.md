@@ -24,8 +24,9 @@ Note: 以上dependencies clone 项目后`npm i`就可以了。
 import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 import '../node_modules/simple-line-icons/css/simple-line-icons.css';
 import '../node_modules/bulma/css/bulma.min.css';
-
 ```
+- #### Add Sass support
+  - `npm i -D sass`
 
 #### Git branches:
 - main: working project with official documentation
