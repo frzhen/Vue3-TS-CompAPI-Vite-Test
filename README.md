@@ -19,14 +19,18 @@ Note: 以上dependencies clone 项目后`npm i`就可以了。
   - `npm i @fortawesome/fontawesome-free@latest`
 - #### simple line icons
   - `npm i simple-line-icons@latest`
-- 添加以上dependencies到`mian.ts`
-```typescript
-import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
-import '../node_modules/simple-line-icons/css/simple-line-icons.css';
-import '../node_modules/bulma/css/bulma.min.css';
-```
+- 添加以上dependencies到`main.ts`
+    ```typescript
+    import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+    import '../node_modules/simple-line-icons/css/simple-line-icons.css';
+    import '../node_modules/bulma/css/bulma.min.css';
+    ```
 - #### Add Sass support
   - `npm i -D sass`
+  - create a `main.scss` and add to `main.ts`
+      ```typescript
+      import '../src/assets/scss/main.scss'
+      ```
 
 #### Git branches:
 - main: working project with official documentation
