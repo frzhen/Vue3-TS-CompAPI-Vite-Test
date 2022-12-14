@@ -1,0 +1,44 @@
+.DS_Store
+node_modules
+/dist
+dist
+dist-ssr
+*.local
+/build
+.parcel-cache
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+**/*.log
+lerna-debug.log*
+
+# Test Files
+tests/**/coverage/
+tests/e2e/reports
+selenium-debug.log
+node_modules
+
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+vscode
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.local
+*.sw?
+
+# Generated Configuration
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
