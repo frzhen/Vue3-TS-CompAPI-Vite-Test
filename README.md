@@ -1,5 +1,5 @@
-# A Complete Vue3 Composition API in TypeScript
-
+A Complete Vue3 Composition API in TypeScript
+=============================================
 ### 创建项目（WebStorm)
 - 打开Webstorm， settings->Plugins->在Market Place搜索Vite Integrated并安装；
 - 在welcome页面点击`New Project`, 或者File->New->Project，打开新项目弹框
@@ -12,7 +12,7 @@
   - `npm i -D vue-tsc@latest`
   - `npm i vue@latest`
 - First Run: `npm run dev`
-Note: 以上dependencies clone 项目后`npm i`就可以了。
+> Note: 以上dependencies clone 项目后`npm i`就可以了。
 - #### install bulma
   - `npm i bulma@latest`
 - #### install fontawesome
@@ -31,6 +31,29 @@ Note: 以上dependencies clone 项目后`npm i`就可以了。
       ```typescript
       import '../src/assets/scss/main.scss'
       ```
+- #### Create a Vue-TS code template in WebStorm
+  - Go to `settings->Editor->File and code templates`
+  - At the right side, select "Default" `Scheme`(`Project`scheme cannot be re-used for other project)
+  - At the files tab, click `+` icon and new file template as the follows:
+  ```vue
+  
+    <!--
+      * @Author: Fred R. Zhen
+      * @Date: ${DATE} ${TIME}
+      * @Email: fred.zhen@gmail.com
+    -->
+    <script setup lang="ts">
+    
+    </script>
+    
+    <template>
+    
+    </template>
+    
+    <style lang='scss' scoped>
+    
+    </style>
+   ```
 
 #### Git branches:
 - main: working project with official documentation
