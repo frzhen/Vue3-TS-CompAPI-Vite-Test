@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { ref, Ref, computed } from "vue";
-import { today, thisWeek, thisMonth } from "../posts";
+import { TimelinePost, today, thisWeek, thisMonth } from "../posts";
 import { DateTime } from "luxon";
 import TimelineItem from "./TimelineItem.vue";
 
@@ -21,7 +21,7 @@ const selectPeriod = (period: Period) => {
   selectedPeriod.value = period;
 }
 
-const posts = computed(() => {
+const posts = computed<TimelinePost[]>(() => {
   return [
     today,
     thisWeek,
