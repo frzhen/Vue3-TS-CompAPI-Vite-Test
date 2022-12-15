@@ -96,6 +96,6 @@ Key learnings points 学习要点：
 
 
 #### Additional learning helpers
--  Compare `pinia-reactive-store` branch with `custom-reactive-store`
+- Compare `pinia-reactive-store` branch with `custom-reactive-store`
   - checkout one of the branch, and Select project root folder, and right click `Git->Compare with branch`
 
