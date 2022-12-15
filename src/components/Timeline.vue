@@ -4,13 +4,15 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, Ref } from "vue";
 
-const periods = ["Today", "This Week", "This Month"];
+type Period = "Today" | "This Week" | "This Month";
 
-const selectedPeriod = ref("Today");
+const periods: Period[] = ["Today", "This Week", "This Month"];
 
-const selectPeriod = (period: string) => {
+const selectedPeriod: Ref<Period> = ref<Period>("Today");
+
+const selectPeriod = (period: Period) => {
   // console.log(period);
   selectedPeriod.value = period;
 }
