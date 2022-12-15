@@ -11,7 +11,8 @@ A Complete Vue3 Composition API in TypeScript
   - `npm i -D typescript@latest`
   - `npm i -D vue-tsc@latest`
   - `npm i vue@latest`
-- First Run: `npm run dev`
+
+> First Run: `npm run dev`
 > Note: 以上dependencies clone 项目后`npm i`就可以了。
 - #### install bulma
   - `npm i bulma@latest`
@@ -31,6 +32,16 @@ A Complete Vue3 Composition API in TypeScript
       ```typescript
       import '../src/assets/scss/main.scss'
       ```
+- #### Add Pinia:
+  - `npm i pinia@latest`
+  - add `import { createPinia } from 'pinia'` to `main.ts`
+  - add the following code to `main.ts` by change the `use(createPinia())` to the existing app creation statement.:
+  ```typescript
+  createApp(App).use(createPinia()).mount('#app');
+  ```
+  > Note: All `use` method must be invoked before `mount` method.
+  > Reference Documentation: [pinia 中文文档](https://pinia.vuejs.org/zh/introduction.html)
+
 - #### Create a Vue-TS code template in WebStorm
   - Go to `settings->Editor->File and code templates`
   - On the right side, select "Default" `Scheme`(`Project`scheme cannot be re-used for other project)

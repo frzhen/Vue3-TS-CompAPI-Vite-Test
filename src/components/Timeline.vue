@@ -47,7 +47,7 @@ const posts = computed<TimelinePost[]>(() => {
 </script>
 
 <template>
-  {{ postsStore.state.foo }}
+  {{ postsStore.foo }}
   <button @click="postsStore.updateFoo('bar')">Update</button>
   <nav class="is-primary panel">
 <!--    {{ selectedPeriod }}-->
