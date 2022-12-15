@@ -62,3 +62,13 @@ A Complete Vue3 Composition API in TypeScript
 - main: working project with official documentation
 - dev(default): development branch
 
+### Key learnings points 学习要点：
+- Composition API:
+  - pure JS/TS style script writing instead of option API's fragmented helper style script
+  - `ref` method: reactive method to link in-component parameters/objects
+  - `computed` method: reactive method for functional components
+  - `defineProps` method: as same as props in option API
+- TypeScript:
+  - Type constraint
+  - Type Guard
+  - `as const` way to create type definition on the fly
