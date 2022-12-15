@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import { ref, Ref } from "vue";
+import { Post, today, thisWeek, thisMonth } from "../posts";
 
 // Using 'as const' and typeof eliminating repetition in code
 const periods = ["Today", "This Week", "This Month"] as const;
@@ -17,6 +18,12 @@ const selectPeriod = (period: Period) => {
   // console.log(period);
   selectedPeriod.value = period;
 }
+
+const posts: Post[] = [
+  today,
+  thisWeek,
+  thisMonth
+]
 </script>
 
 <template>
@@ -31,6 +38,10 @@ const selectPeriod = (period: Period) => {
         {{ period }}
       </a>
     </span>
+    <a v-for="post of posts" :key="post.id" class="panel-block">
+      <a>{{ post.title }}</a>
+      <div>{{ post.created }}</div>
+    </a>
   </nav>
 </template>
 
