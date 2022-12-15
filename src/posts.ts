@@ -19,12 +19,12 @@ export const today: Post = {
 
 export const thisWeek: Post = {
   id: "2",
-  title: "Today",
-  created: DateTime.now().minus({days: 5}).toISO()
+  title: "This Week",
+  created: DateTime.now().minus({day: 5}).toISO()
 }
 
 export const thisMonth: Post = {
   id: "3",
-  title: "This Week",
-  created: DateTime.now().minus({ weeks: 3}).toISO()
+  title: "This Month",
+  created: DateTime.now().minus({ week: 3}).toISO()
 }

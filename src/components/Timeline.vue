@@ -4,7 +4,7 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref, Ref, computed } from "vue";
 import { Post, today, thisWeek, thisMonth } from "../posts";
 import {DateTime} from "luxon";
 
@@ -13,23 +13,44 @@ const periods = ["Today", "This Week", "This Month"] as const;
 
 type Period = typeof periods[number];
 
-const selectedPeriod: Ref<Period> = ref<Period>("Today");
+const selectedPeriod: Ref<Period> = ref<Period>("This Month");
 
 const selectPeriod = (period: Period) => {
   // console.log(period);
   selectedPeriod.value = period;
 }
 
-const posts = [
-  today,
-  thisWeek,
-  thisMonth
-].map(post => {
-  return {
-    ...post,
-    created: DateTime.fromISO(post.created)
-  }
-})
+const posts = computed(() => {
+  return [
+    today,
+    thisWeek,
+    thisMonth
+  ].map(post => {
+      return {
+        ...post,
+        created: DateTime.fromISO(post.created)
+      }})
+    .filter(post => {
+      if (selectedPeriod.value === "Today") {
+        return post.created >= DateTime.now().minus({day: 1});
+      }
+      if (selectedPeriod.value === "This Week") {
+        return (
+          post.created >= DateTime.now().minus({week: 1})
+          &&
+          post.created < DateTime.now().minus({day: 1})
+        );
+      }
+      if (selectedPeriod.value === "This Month") {
+        return (
+          post.created >= DateTime.now().minus({week: 4})
+          &&
+          post.created < DateTime.now().minus({week: 1})
+        );
+      }
+    });
+});
+
 </script>
 
 <template>
