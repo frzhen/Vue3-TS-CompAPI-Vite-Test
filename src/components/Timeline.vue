@@ -4,11 +4,20 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
+const periods = ["Today", "This Week", "This Month"];
 
 </script>
 
 <template>
-  Timeline
+  <nav class="is-primary panel">
+    <span class="panel-tabs">
+      <a v-for="period of periods"
+        :key="period"
+         href="">
+        {{ period }}
+      </a>
+    </span>
+  </nav>
 </template>
 
 <style lang='scss' scoped>
