@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { ref, Ref } from "vue";
 import { Post, today, thisWeek, thisMonth } from "../posts";
+import {DateTime} from "luxon";
 
 // Using 'as const' and typeof eliminating repetition in code
 const periods = ["Today", "This Week", "This Month"] as const;
@@ -19,11 +20,16 @@ const selectPeriod = (period: Period) => {
   selectedPeriod.value = period;
 }
 
-const posts: Post[] = [
+const posts = [
   today,
   thisWeek,
   thisMonth
-]
+].map(post => {
+  return {
+    ...post,
+    created: DateTime.fromISO(post.created)
+  }
+})
 </script>
 
 <template>
@@ -40,7 +46,7 @@ const posts: Post[] = [
     </span>
     <a v-for="post of posts" :key="post.id" class="panel-block">
       <a>{{ post.title }}</a>
-      <div>{{ post.created }}</div>
+      <div>{{ post.created.toFormat("d MMM") }}</div>
     </a>
   </nav>
 </template>
