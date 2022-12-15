@@ -5,15 +5,16 @@
 -->
 <script setup lang="ts">
 import { ref, Ref, computed } from "vue";
-import { Post, today, thisWeek, thisMonth } from "../posts";
-import {DateTime} from "luxon";
+import { today, thisWeek, thisMonth } from "../posts";
+import { DateTime } from "luxon";
+import TimelineItem from "./TimelineItem.vue";
 
 // Using 'as const' and typeof eliminating repetition in code
 const periods = ["Today", "This Week", "This Month"] as const;
 
 type Period = typeof periods[number];
 
-const selectedPeriod: Ref<Period> = ref<Period>("This Month");
+const selectedPeriod: Ref<Period> = ref<Period>("Today");
 
 const selectPeriod = (period: Period) => {
   // console.log(period);
@@ -35,19 +36,9 @@ const posts = computed(() => {
         return post.created >= DateTime.now().minus({day: 1});
       }
       if (selectedPeriod.value === "This Week") {
-        return (
-          post.created >= DateTime.now().minus({week: 1})
-          &&
-          post.created < DateTime.now().minus({day: 1})
-        );
+        return (post.created >= DateTime.now().minus({week: 1}));
       }
-      if (selectedPeriod.value === "This Month") {
-        return (
-          post.created >= DateTime.now().minus({week: 4})
-          &&
-          post.created < DateTime.now().minus({week: 1})
-        );
-      }
+      return post
     });
 });
 
@@ -65,10 +56,10 @@ const posts = computed(() => {
         {{ period }}
       </a>
     </span>
-    <a v-for="post of posts" :key="post.id" class="panel-block">
-      <a>{{ post.title }}</a>
-      <div>{{ post.created.toFormat("d MMM") }}</div>
-    </a>
+    <TimelineItem
+      v-for="post of posts"
+      :key="post"
+      :post="post" />
   </nav>
 </template>
 
