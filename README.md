@@ -61,6 +61,7 @@ A Complete Vue3 Composition API in TypeScript
 #### Git branches:
 - main: working project with official documentation
 - dev(default): development branch
+- custom-reactive-store: a tiny custom state management tool;
 
 ### Key learnings points 学习要点：
 - Composition API:
