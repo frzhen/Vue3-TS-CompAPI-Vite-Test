@@ -4,7 +4,10 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref, Ref, computed } from "vue";
+import { today, thisWeek, thisMonth } from "../posts";
+import { DateTime } from "luxon";
+import TimelineItem from "./TimelineItem.vue";
 
 // Using 'as const' and typeof eliminating repetition in code
 const periods = ["Today", "This Week", "This Month"] as const;
@@ -17,6 +20,28 @@ const selectPeriod = (period: Period) => {
   // console.log(period);
   selectedPeriod.value = period;
 }
+
+const posts = computed(() => {
+  return [
+    today,
+    thisWeek,
+    thisMonth
+  ].map(post => {
+      return {
+        ...post,
+        created: DateTime.fromISO(post.created)
+      }})
+    .filter(post => {
+      if (selectedPeriod.value === "Today") {
+        return post.created >= DateTime.now().minus({day: 1});
+      }
+      if (selectedPeriod.value === "This Week") {
+        return (post.created >= DateTime.now().minus({week: 1}));
+      }
+      return post
+    });
+});
+
 </script>
 
 <template>
@@ -31,6 +56,10 @@ const selectPeriod = (period: Period) => {
         {{ period }}
       </a>
     </span>
+    <TimelineItem
+      v-for="post of posts"
+      :key="post"
+      :post="post" />
   </nav>
 </template>
 
