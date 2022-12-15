@@ -8,20 +8,22 @@ import { ref } from "vue";
 
 const periods = ["Today", "This Week", "This Month"];
 
-let selectedPeriod = ref("Today");
+const selectedPeriod = ref("Today");
+
 const selectPeriod = (period: string) => {
-  console.log(period);
+  // console.log(period);
   selectedPeriod.value = period;
 }
 </script>
 
 <template>
   <nav class="is-primary panel">
-    {{ selectedPeriod }}
+<!--    {{ selectedPeriod }}-->
     <span class="panel-tabs">
       <a v-for="period of periods"
          :key="period"
          @click.prevent="selectPeriod(period)"
+         :class="{'is-active': period === selectedPeriod}"
          href="">
         {{ period }}
       </a>
