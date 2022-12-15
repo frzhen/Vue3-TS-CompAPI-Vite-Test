@@ -37,7 +37,9 @@ A Complete Vue3 Composition API in TypeScript
   - add `import { createPinia } from 'pinia'` to `main.ts`
   - add the following code to `main.ts` by change the `use(createPinia())` to the existing app creation statement.:
   ```typescript
-  createApp(App).use(createPinia()).mount('#app');
+  createApp(App)
+  .use(createPinia())
+  .mount('#app');
   ```
   > Note: All `use` method must be invoked before `mount` method.
   > Reference Documentation: [pinia 中文文档](https://pinia.vuejs.org/zh/introduction.html)
