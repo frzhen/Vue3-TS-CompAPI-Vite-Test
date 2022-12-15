@@ -41,7 +41,7 @@ A Complete Vue3 Composition API in TypeScript
   ```
   > Note: All `use` method must be invoked before `mount` method.
   > Reference Documentation: [pinia 中文文档](https://pinia.vuejs.org/zh/introduction.html)
-
+--------------------------------------------------------------------
 - #### Create a Vue-TS code template in WebStorm
   - Go to `settings->Editor->File and code templates`
   - On the right side, select "Default" `Scheme`(`Project`scheme cannot be re-used for other project)
@@ -73,8 +73,10 @@ A Complete Vue3 Composition API in TypeScript
 - main: working project with official documentation
 - dev(default): development branch
 - custom-reactive-store: a tiny custom state management tool;
-
-### Key learnings points 学习要点：
+- pinia-reactive-store: pinia implementation to custom-reactive-store's function
+-------------------------------------------------------------
+Key learnings points 学习要点：
+============================
 - Composition API:
   - pure JS/TS style script writing instead of option API's fragmented helper style script
   - #### reactive methods:
@@ -89,3 +91,9 @@ A Complete Vue3 Composition API in TypeScript
   - Type Guard;
   - `as const` way to create type definition on the fly;
   - `get` keyword to make a function/method accessible like an object attribute;
+
+
+#### Additional learning helpers
+-  Compare `pinia-reactive-store` branch with `custom-reactive-store`
+  - checkout one of the branch, and Select project root folder, and right click `Git->Compare with branch`
+
