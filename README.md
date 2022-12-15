@@ -33,7 +33,7 @@ A Complete Vue3 Composition API in TypeScript
       ```
 - #### Create a Vue-TS code template in WebStorm
   - Go to `settings->Editor->File and code templates`
-  - At the right side, select "Default" `Scheme`(`Project`scheme cannot be re-used for other project)
+  - On the right side, select "Default" `Scheme`(`Project`scheme cannot be re-used for other project)
   - At the files tab, click `+` icon and new file template as the follows:
   ```vue
   
@@ -54,7 +54,9 @@ A Complete Vue3 Composition API in TypeScript
     
     </style>
    ```
-
+- #### add third-party datetime support: luxon
+  - `npm i -D @types/luxon@latest`
+  - 
 #### Git branches:
 - main: working project with official documentation
 - dev(default): development branch
