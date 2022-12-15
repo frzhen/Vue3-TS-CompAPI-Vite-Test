@@ -6,9 +6,10 @@
 <script setup lang="ts">
 import { ref, Ref } from "vue";
 
-type Period = "Today" | "This Week" | "This Month";
+// Using 'as const' and typeof eliminating repetition in code
+const periods = ["Today", "This Week", "This Month"] as const;
 
-const periods: Period[] = ["Today", "This Week", "This Month"];
+type Period = typeof periods[number];
 
 const selectedPeriod: Ref<Period> = ref<Period>("Today");
 
