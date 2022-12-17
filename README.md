@@ -71,6 +71,21 @@ A Complete Vue3 Composition API in TypeScript
   - `npm i -D luxon@latest @types/luxon@latest`
 - #### add node and express server:
   - `npm i -D express@latest @types/express@latest cors@latest @types/cors@latest ts-node@latest`
+  - add the following to the tsconfig.json:
+  ```
+    "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+  ```
+  - create a mew directory `server` and a new file under the `server/` called `index.ts`
+  - check out the server code in `./src/server/index.ts` for detail.
+  - add the following script to `package.json`:
+  ```
+  "server": "npx ts-node src/server/index.ts",
+  ```
+  - `npm run server` to run the express server
 
 
 #### Git branches:
