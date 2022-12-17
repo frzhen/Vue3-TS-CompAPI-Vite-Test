@@ -9,13 +9,9 @@ import { TimelinePost } from "../posts";
 import { DateTime } from "luxon";
 import TimelineItem from "./TimelineItem.vue";
 import { usePosts } from "../store/posts";
+import { periods, Period } from "../constants";
 
 const postsStore = usePosts();
-
-// Using 'as const' and typeof eliminating repetition in code
-const periods = ["Today", "This Week", "This Month"] as const;
-
-type Period = typeof periods[number];
 
 const selectedPeriod: Ref<Period> = ref<Period>("Today");
 
