@@ -6,7 +6,10 @@
 <script setup lang="ts">
 import { TimelinePost } from "../posts";
 
-const props = defineProps<{ post: TimelinePost }>()
+defineProps<{
+  post: TimelinePost
+}>();
+
 </script>
 
 <template>

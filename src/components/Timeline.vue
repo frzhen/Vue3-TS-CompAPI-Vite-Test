@@ -5,10 +5,10 @@
 -->
 <script setup lang="ts">
 import { ref, Ref, computed } from "vue";
-import { TimelinePost, today, thisWeek, thisMonth } from "../posts";
+import { TimelinePost } from "../posts";
 import { DateTime } from "luxon";
 import TimelineItem from "./TimelineItem.vue";
-import {usePosts} from "../store/posts";
+import { usePosts } from "../store/posts";
 
 const postsStore = usePosts();
 
@@ -24,11 +24,13 @@ const selectPeriod = (period: Period) => {
 }
 
 const posts = computed<TimelinePost[]>(() => {
-  return [
-    today,
-    thisWeek,
-    thisMonth
-  ].map(post => {
+  return postsStore.ids
+    .map( id => {
+      const post = postsStore.all.get(id);
+      // add type guard to address the possibility that post can be undefined
+      if (!post) {
+        throw new Error(`Post with id of ${id} was expected but not found.`)
+      }
       return {
         ...post,
         created: DateTime.fromISO(post.created)
@@ -36,8 +38,7 @@ const posts = computed<TimelinePost[]>(() => {
     .filter(post => {
       if (selectedPeriod.value === "Today") {
         return post.created >= DateTime.now().minus({day: 1});
-      }
-      if (selectedPeriod.value === "This Week") {
+      } else if (selectedPeriod.value === "This Week") {
         return (post.created >= DateTime.now().minus({week: 1}));
       }
       return post
@@ -47,8 +48,6 @@ const posts = computed<TimelinePost[]>(() => {
 </script>
 
 <template>
-  {{ postsStore.foo }}
-  <button @click="postsStore.updateFoo('bar')">Update</button>
   <nav class="is-primary panel">
 <!--    {{ selectedPeriod }}-->
     <span class="panel-tabs">

@@ -4,21 +4,26 @@
  * @Email: fred.zhen@gmail.com
  */
 import { defineStore } from 'pinia';
+import { Post, today, thisWeek, thisMonth } from "../posts";
 
 // reactive for complex object, {}, map, set
 interface PostsState {
-  foo: string
+  // using map/set is more efficient than array/list
+  ids: string[];
+  all: Map<string, Post>;
 }
 
 export const usePosts = defineStore("posts", {
   state: (): PostsState => ({
-    foo: 'foo'
+    ids: [today.id, thisWeek.id, thisMonth.id],
+    all: new Map([
+      [today.id, today],
+      [thisWeek.id, thisWeek],
+      [thisMonth.id, thisMonth],
+    ])
   }),
 
   actions: {
-    updateFoo(foo: string) {
-      // this.$state.foo is the same as this.foo
-      this.foo = foo;
-    }
+
   }
 });
