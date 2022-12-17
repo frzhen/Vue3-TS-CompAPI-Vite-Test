@@ -69,6 +69,8 @@ A Complete Vue3 Composition API in TypeScript
    ```
 - #### add third-party datetime support: luxon
   - `npm i -D luxon@latest @types/luxon@latest`
+- #### add node and express server:
+  - `npm i -D express@latest @types/express@latest cors@latest @types/cors@latest ts-node@latest`
 
 
 #### Git branches:
