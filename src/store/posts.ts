@@ -5,12 +5,14 @@
  */
 import { defineStore } from 'pinia';
 import { Post, today, thisWeek, thisMonth } from "../posts";
+import {Period} from "../constants";
 
 // reactive for complex object, {}, map, set
 interface PostsState {
   // using map/set is more efficient than array/list
   ids: string[];
   all: Map<string, Post>;
+  selectedPeriod: Period;
 }
 
 export const usePosts = defineStore("posts", {
@@ -20,10 +22,13 @@ export const usePosts = defineStore("posts", {
       [today.id, today],
       [thisWeek.id, thisWeek],
       [thisMonth.id, thisMonth],
-    ])
+    ]),
+    selectedPeriod: "Today"
   }),
 
   actions: {
-
+    setSelectedPeriod(period: Period) {
+      this.selectedPeriod = period;
+    }
   }
 });

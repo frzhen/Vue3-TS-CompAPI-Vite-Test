@@ -4,20 +4,14 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
-import { ref, Ref, computed } from "vue";
+import { computed } from "vue";
 import { TimelinePost } from "../posts";
 import { DateTime } from "luxon";
 import TimelineItem from "./TimelineItem.vue";
 import { usePosts } from "../store/posts";
-import { periods, Period } from "../constants";
+import { periods } from "../constants";
 
 const postsStore = usePosts();
-
-const selectedPeriod: Ref<Period> = ref<Period>("Today");
-
-const selectPeriod = (period: Period) => {
-  selectedPeriod.value = period;
-}
 
 const posts = computed<TimelinePost[]>(() => {
   return postsStore.ids
@@ -32,9 +26,10 @@ const posts = computed<TimelinePost[]>(() => {
         created: DateTime.fromISO(post.created)
       }})
     .filter(post => {
-      if (selectedPeriod.value === "Today") {
+      if (postsStore.selectedPeriod === "Today") {
         return post.created >= DateTime.now().minus({day: 1});
-      } else if (selectedPeriod.value === "This Week") {
+      }
+      if (postsStore.selectedPeriod === "This Week") {
         return (post.created >= DateTime.now().minus({week: 1}));
       }
       return post
@@ -49,8 +44,8 @@ const posts = computed<TimelinePost[]>(() => {
     <span class="panel-tabs">
       <a v-for="period of periods"
          :key="period"
-         @click.prevent="selectPeriod(period)"
-         :class="{'is-active': period === selectedPeriod}"
+         @click.prevent="postsStore.setSelectedPeriod(period)"
+         :class="{'is-active': period === postsStore.selectedPeriod}"
          href="">
         {{ period }}
       </a>
