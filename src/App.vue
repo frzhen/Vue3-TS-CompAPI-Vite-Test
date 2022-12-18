@@ -5,7 +5,19 @@ import Timeline from "./components/Timeline.vue";
 <template>
   <div class="section">
     <div class="container">
-      <Timeline />
+      <Suspense>
+        <template #default>
+          <Timeline />
+        </template>
+        <template #fallback>
+          <div>
+            <progress class="progress is-primary is-small" />
+            <h1 class="is-size-3 is-primary">
+              Loading...
+            </h1>
+          </div>
+        </template>
+      </Suspense>
     </div>
   </div>
 </template>
