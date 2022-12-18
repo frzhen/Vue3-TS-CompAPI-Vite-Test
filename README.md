@@ -11,8 +11,9 @@ A Complete Vue3 Composition API in TypeScript
   - `npm i -D typescript@latest`
   - `npm i -D vue-tsc@latest`
   - `npm i vue@latest`
+  - `npm i -D concurrently`
 
-> First Run: `npm run dev`
+> First Run: `npm run start`, this will run both the express server and the app.
 > Note: 以上dependencies clone 项目后`npm i`就可以了。
 - #### install bulma
   - `npm i bulma@latest`
