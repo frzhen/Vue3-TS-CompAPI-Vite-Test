@@ -11,10 +11,8 @@ import Timeline from "./components/Timeline.vue";
         </template>
         <template #fallback>
           <div>
+            <label class="is-size-3">Loading...</label>
             <progress class="progress is-primary is-small" />
-            <h1 class="is-size-3 is-primary">
-              Loading...
-            </h1>
           </div>
         </template>
       </Suspense>
