@@ -6,6 +6,7 @@
 import express from 'express';
 import cors from 'cors';
 import { today, thisWeek, thisMonth } from "../posts";
+import {serverPort} from "../constants";
 
 const app = express();
 app.use(cors())
@@ -14,7 +15,7 @@ app.get("/posts", (req, res) => {
   res.json([today, thisWeek, thisMonth])
 });
 
-app.listen(5001, () => {
+app.listen(serverPort, () => {
   console.log('Listening on port 5001');
 });
 

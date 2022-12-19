@@ -44,6 +44,9 @@ A Complete Vue3 Composition API in TypeScript
   ```
   > Note: All `use` method must be invoked before `mount` method.
   > Reference Documentation: [pinia 中文文档](https://pinia.vuejs.org/zh/introduction.html)
+- #### Add vue-router
+  - `npm i vue-router@latest`
+  - 
 --------------------------------------------------------------------
 - #### Create a Vue-TS code template in WebStorm
   - Go to `settings->Editor->File and code templates`

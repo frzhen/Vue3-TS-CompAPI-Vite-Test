@@ -5,7 +5,7 @@
  */
 import { defineStore } from 'pinia';
 import {Post, today, thisWeek, thisMonth, TimelinePost} from "../posts";
-import {Period} from "../constants";
+import {Period, serverUrl} from "../constants";
 import {DateTime} from "luxon";
 
 // reactive for complex object, {}, map, set
@@ -31,7 +31,7 @@ export const usePosts = defineStore("posts", {
       this.selectedPeriod = period;
     },
     async fetchPosts () {
-      const res = await window.fetch("http://localhost:5001/posts");
+      const res = await window.fetch(serverUrl);
       const data = (await res.json()) as Post[];
       await delay()
 

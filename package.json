@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev:app": "vite --port 5000",
+    "dev:app": "vite --port 5100",
     "dev:server": "npx ts-node src/server/index.ts",
     "start": "concurrently npm:dev:*",
     "build": "vue-tsc --noEmit && vite build",
@@ -14,7 +14,8 @@
     "bulma": "^0.9.4",
     "pinia": "^2.0.28",
     "simple-line-icons": "^2.5.5",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

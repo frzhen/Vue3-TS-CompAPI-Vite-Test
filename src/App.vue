@@ -1,23 +1,9 @@
-<script setup lang="ts">
-import Timeline from "./components/Timeline.vue";
+<script lang="ts" setup>
+import Navbar from "./components/Navbar.vue";
 </script>
-
 <template>
-  <div class="section">
-    <div class="container">
-      <Suspense>
-        <template #default>
-          <Timeline />
-        </template>
-        <template #fallback>
-          <div>
-            <label class="is-size-3">Loading...</label>
-            <progress class="progress is-primary is-small" />
-          </div>
-        </template>
-      </Suspense>
-    </div>
-  </div>
+  <Navbar />
+  <RouterView />
 </template>
 
 <style lang="scss">
