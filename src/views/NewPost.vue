@@ -8,7 +8,7 @@
 </script>
 
 <template>
-
+  New Post
 </template>
 
 <style lang='scss' scoped>
