@@ -4,7 +4,7 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
-import { TimelinePost } from "../posts";
+import { TimelinePost } from "../utils/interfaces";
 
 defineProps<{
   post: TimelinePost

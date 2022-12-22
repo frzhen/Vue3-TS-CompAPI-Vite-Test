@@ -1,19 +1,11 @@
 /**
  * @Author: Fred R. Zhen
- * @Date: 2022/12/15 17:46
+ * @Date: 2022/12/22 21:39
  * @Email: fred.zhen@gmail.com
  */
-import { DateTime } from "luxon";
+import {DateTime} from "luxon";
+import {Post} from "./interfaces";
 
-export interface Post {
-  id: string;
-  title: string;
-  created: string;
-}
-
-export interface TimelinePost extends Omit<Post, 'created'> {
-  created: DateTime
-}
 
 export const today: Post = {
   id: "1",

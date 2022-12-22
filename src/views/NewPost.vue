@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import PostWriter from "../components/PostWriter.vue";
-import { TimelinePost } from "../posts";
+import { TimelinePost } from "../utils/interfaces";
 import { DateTime } from "luxon";
 
 const post: TimelinePost = {

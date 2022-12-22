@@ -4,9 +4,10 @@
  * @Email: fred.zhen@gmail.com
  */
 import { defineStore } from 'pinia';
-import {Post, today, thisWeek, thisMonth, TimelinePost} from "../posts";
-import {Period, serverUrl} from "../constants";
+import {today, thisWeek, thisMonth} from "../utils/1time_use";
+import {Period, serverUrl} from "../utils/constants";
 import {DateTime} from "luxon";
+import {Post, TimelinePost} from "../utils/interfaces";
 
 // reactive for complex object, {}, map, set
 interface PostsState {

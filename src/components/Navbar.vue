@@ -21,8 +21,5 @@
 </template>
 
 <style lang='scss' scoped>
- .navbar {
-   background-color: #fff;
- }
 
 </style>

@@ -5,8 +5,8 @@
  */
 import express from 'express';
 import cors from 'cors';
-import { today, thisWeek, thisMonth } from "../posts";
-import {serverPort} from "../constants";
+import { today, thisWeek, thisMonth } from "../utils/1time_use";
+import { serverPort } from "../utils/constants";
 
 const app = express();
 app.use(cors())
