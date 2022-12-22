@@ -5,10 +5,13 @@
 -->
 <script setup lang="ts">
 import { TimelinePost } from "../utils/interfaces";
+import { ref } from "vue";
 
-defineProps<{
+const props = defineProps<{
   post: TimelinePost,
 }>();
+
+const title = ref(props.post.title);
 </script>
 
 <template>
@@ -18,7 +21,8 @@ defineProps<{
         <div class="label">
           Post Title
         </div>
-        <input type="text" class="input">
+        <input type="text" class="input" v-model="title">
+        {{ title }}
       </div>
     </div>
   </div>
