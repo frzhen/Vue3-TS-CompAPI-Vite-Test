@@ -8,15 +8,21 @@
 </script>
 
 <template>
-  <div class="navbar">
+  <div class="navbar mx-6">
     <div class="navbar-end">
       <div class="buttons">
-        <RouterLink to="/posts/new" class="button">New Post</RouterLink>
+        <RouterLink to="/posts/new" class="button is-primary is-outlined mr-5">
+          <i class="fa-solid fa-plus mr-3" />
+          New Post
+        </RouterLink>
       </div>
     </div>
   </div>
 </template>
 
 <style lang='scss' scoped>
+ .navbar {
+   background-color: #fff;
+ }
 
 </style>

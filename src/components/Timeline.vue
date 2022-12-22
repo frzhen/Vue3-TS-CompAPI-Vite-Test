@@ -33,5 +33,7 @@ await postsStore.fetchPosts();
 </template>
 
 <style lang='scss' scoped>
-
+.panel {
+  background-color: #fff;
+}
 </style>
