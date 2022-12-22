@@ -104,6 +104,7 @@ Key learnings points 学习要点：
   - pure JS/TS style script writing instead of option API's fragmented helper style script
   - #### reactive methods:
     - `ref` method: reactive method to link in-component parameters/objects, good for primitive datatype, i.e. number, string;
+    > `ref` can also used to create reactive dom nodes with contenteditable property
     - `reactive` method: good for complex objects such as {} object, Map, Set;
   - `computed` method: reactive method for functional components such as derived value such as map, reduce, filter data;
   - `defineProps` method: as same as props in option API;

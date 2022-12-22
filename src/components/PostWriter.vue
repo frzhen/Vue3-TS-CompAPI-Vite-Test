@@ -5,13 +5,22 @@
 -->
 <script setup lang="ts">
 import { TimelinePost } from "../utils/interfaces";
-import { ref } from "vue";
+import { ref, onMounted  } from "vue";
 
 const props = defineProps<{
   post: TimelinePost,
 }>();
 
 const title = ref(props.post.title);
+
+const contentEditable = ref();
+
+console.log(contentEditable.value);
+
+onMounted(() => {
+  console.log('Mounted');
+  console.log(contentEditable.value);
+})
 </script>
 
 <template>
@@ -24,6 +33,7 @@ const title = ref(props.post.title);
         <input type="text" class="input" v-model="title">
         {{ title }}
       </div>
+      <div contenteditable ref="contenteditable" />
     </div>
   </div>
 
