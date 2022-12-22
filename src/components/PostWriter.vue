@@ -33,7 +33,7 @@ onMounted(() => {
         <input type="text" class="input" v-model="title">
         {{ title }}
       </div>
-      <div contenteditable ref="contenteditable" />
+      <div contenteditable ref="contentEditable" />
     </div>
   </div>
 
