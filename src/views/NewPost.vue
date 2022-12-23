@@ -18,8 +18,13 @@ const post: TimelinePost = {
 
 <template>
   <div class="container mx-6 my-3">
-    New Post
-    <PostWriter :post="post" />
+    <div class="box">
+      <div class="title is-4">
+        New Post
+      </div>
+      <PostWriter :post="post" />
+    </div>
+
   </div>
 
 </template>

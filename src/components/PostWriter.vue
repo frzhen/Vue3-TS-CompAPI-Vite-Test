@@ -66,38 +66,55 @@ const handleInput = () => {
 </script>
 
 <template>
-  <!-- TODO: add change left2right display to top-down display -->
-  <div class="columns">
-    <div class="column">
-      <div class="field">
-        <div class="label">
-          Post Title
-        </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-title">
+        <span class="mr-3">
+          Title:
+        </span>
         <input type="text" class="input" v-model="title">
       </div>
     </div>
-  </div>
-  <div class="box">
-
-    <div class="columns">
-      <div class="column">
-        <div class="label">Markdown Editor:</div>
-        <div contenteditable
-             ref="contentEditable"
-             @input="handleInput"
-             class="textarea"
-        />
-      </div>
-      <div class="column">
-        <div class="label">Preview:</div>
-        <div v-html="html" />
+    <div class="card-content mb-1 pb-1 is-justify-content-flex-end">
+      <!-- TODO: add change left2right display to top-down display -->
+      <!-- TODO: add preview highlight theme selection here -->
+      <span class="">
+        icons
+      </span>
+    </div>
+    <div class="card-content pt-1">
+      <div class="columns">
+        <div class="column">
+          <div class="panel">
+            <div class="panel-heading">
+              <div class="title is-6">
+                Markdown Editor:
+              </div>
+            </div>
+            <div class="panel-block">
+              <div contenteditable
+                   ref="contentEditable"
+                   @input="handleInput"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="tile">
+            <div class="content">
+              <p class="title is-6 my-4 has-text-info">
+                Preview:
+              </p>
+              <p v-html="html" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 
 </template>
 
 <style lang='scss' scoped>
-
 </style>
