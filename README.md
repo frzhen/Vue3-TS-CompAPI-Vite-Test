@@ -110,11 +110,18 @@ Key learnings points 学习要点：
     - `ref` method: reactive method to link in-component parameters/objects, good for primitive datatype, i.e. number, string;
     > `ref` can also used to create reactive dom nodes with contenteditable property
     - `reactive` method: good for complex objects such as {} object, Map, Set;
+    - [Article: Vue 3 Composition API -  ref and reactive](https://labs.thisdot.co/blog/vue-3-composition-api-ref-and-reactive)
   - `computed` method: reactive method for functional components such as derived value such as map, reduce, filter data;
   - `defineProps` method: as same as props in option API;
   - `readonly`: make the object not able to mutate directly, but still reactive;
   - `v-html`: when you're using this directive, re-think if it can be replaced by a new component.
-  - `watch` and `watchEffect` methods: differentiate between watch and computed method. The watch method is best to use on the case that an async operation need a DOM mutation and state effect.
+  - #### `watch` and `watchEffect` methods: 
+    - differentiate between watch and computed method. The watch method is best to use on the case that an async operation need a DOM mutation and state effect.
+    - Differences between `watch` and `watchEffect`:
+      - `watch` can be used to lazily trigger side effects(`watchEffect` is always immediate);
+      - `watchEffect` automatically watches for changes to any state changes (`watch` must be provided with a variable to watch);
+      - `watch` provides access to the current and previous values.
+    - [Article: Vue 3 Composition API - watch and watchEffect](https://www.thisdot.co/blog/vue-3-composition-api-watch-and-watcheffect)
   - #### Composable: 
 - TypeScript:
   - Type constraint;

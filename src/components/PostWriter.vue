@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { TimelinePost } from "../utils/interfaces";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watchEffect } from "vue";
 import { marked } from "marked"
 
 const props = defineProps<{
@@ -17,15 +17,25 @@ const content = ref(props.post.markdown);
 const html = ref();
 const contentEditable = ref<HTMLDivElement>();
 
-watch(content, (newContent) => {
-  marked.parse(newContent, (err, parseResult) => {
+watchEffect(() => {
+  marked.parse(content.value, (err, parseResult) => {
     html.value = parseResult;
   });
-}, {
-  // make the method to be called when the value is set for the first time
-  // without this option, initial rendering will not happen
-  immediate: true
-})
+});
+
+// the following code are exactly the same as using watchEffect
+//
+// import watch method to use the following code snippet
+//
+// watch(content, (newContent) => {
+//   marked.parse(newContent, (err, parseResult) => {
+//     html.value = parseResult;
+//   });
+// }, {
+//   // make the method to be called when the value is set for the first time
+//   // without this option, initial rendering will not happen
+//   immediate: true
+// })
 
 onMounted(() => {
   if (!contentEditable.value) {
