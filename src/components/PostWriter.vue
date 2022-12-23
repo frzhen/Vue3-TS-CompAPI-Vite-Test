@@ -7,6 +7,7 @@
 import { TimelinePost } from "../utils/interfaces";
 import { ref, onMounted, watchEffect } from "vue";
 import { marked } from "marked"
+import highlightjs from "highlight.js";
 
 const props = defineProps<{
   post: TimelinePost,
@@ -18,7 +19,13 @@ const html = ref();
 const contentEditable = ref<HTMLDivElement>();
 
 watchEffect(() => {
-  marked.parse(content.value, (err, parseResult) => {
+  marked.parse(content.value, {
+    gfm: true,
+    breaks: true,
+    highlight: (code) => {
+      return highlightjs.highlightAuto(code).value;
+    }
+  }, (err, parseResult) => {
     html.value = parseResult;
   });
 });
@@ -28,14 +35,20 @@ watchEffect(() => {
 // import watch method to use the following code snippet
 //
 // watch(content, (newContent) => {
-//   marked.parse(newContent, (err, parseResult) => {
+//   marked.parse(newContent, {
+//     gfm: true,
+//     breaks: true,
+//     highlight: (code) => {
+//       return highlightjs.highlightAuto(code).value;
+//     }
+//   }, (err, parseResult) => {
 //     html.value = parseResult;
 //   });
 // }, {
 //   // make the method to be called when the value is set for the first time
 //   // without this option, initial rendering will not happen
 //   immediate: true
-// })
+// });
 
 onMounted(() => {
   if (!contentEditable.value) {
@@ -53,6 +66,7 @@ const handleInput = () => {
 </script>
 
 <template>
+  <!-- TODO: add change left2right display to top-down display -->
   <div class="columns">
     <div class="column">
       <div class="field">
@@ -63,14 +77,24 @@ const handleInput = () => {
       </div>
     </div>
   </div>
-  <div class="columns">
-    <div class="column">
-      <div contenteditable ref="contentEditable" @input="handleInput" />
-    </div>
-    <div class="column">
-      <div v-html="html" />
+  <div class="box">
+
+    <div class="columns">
+      <div class="column">
+        <div class="label">Markdown Editor:</div>
+        <div contenteditable
+             ref="contentEditable"
+             @input="handleInput"
+             class="textarea"
+        />
+      </div>
+      <div class="column">
+        <div class="label">Preview:</div>
+        <div v-html="html" />
+      </div>
     </div>
   </div>
+
 
 </template>
 

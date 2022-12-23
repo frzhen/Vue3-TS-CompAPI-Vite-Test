@@ -94,6 +94,12 @@ A Complete Vue3 Composition API in TypeScript
 - #### Add Markdown support
   - `npm i marked@latest @types/marked@latest`
   - [reference to marked package](https://marked.js.org/)
+- #### Add Syntax Highlighting support
+  - `npm i highlight.js@latest`
+  - [highlight.js documentation](https://highlightjs.org/)
+  - #### Optimization with `loash` library
+  - `npm i lodash@latest @types/lodash@latest`
+  - [lodash documentation](https://lodash.com/docs/4.17.15)
 
 
 #### Git branches:
