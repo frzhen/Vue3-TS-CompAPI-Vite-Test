@@ -122,6 +122,7 @@ Key learnings points 学习要点：
       - `watchEffect` automatically watches for changes to any state changes (`watch` must be provided with a variable to watch);
       - `watch` provides access to the current and previous values.
     - [Article: Vue 3 Composition API - watch and watchEffect](https://www.thisdot.co/blog/vue-3-composition-api-watch-and-watcheffect)
+    > For the most of the cases, `watch` and `watchEffect` have the same functionality, however, watch gives you more control and more readability, but too verbose, while watchEffect are simpler with less code. In this project, we chose simplicity over readability.
   - #### Composable: 
 - TypeScript:
   - Type constraint;
