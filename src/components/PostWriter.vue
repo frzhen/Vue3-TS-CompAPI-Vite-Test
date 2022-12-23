@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { TimelinePost } from "../utils/interfaces";
 import { ref, onMounted  } from "vue";
+import { marked } from "marked"
 
 const props = defineProps<{
   post: TimelinePost,
@@ -13,7 +14,12 @@ const props = defineProps<{
 
 const title = ref(props.post.title);
 const content = ref(props.post.markdown);
+const html = ref();
 const contentEditable = ref<HTMLDivElement>();
+
+marked.parse(content.value, (err, parseResult) => {
+  html.value = parseResult;
+});
 
 onMounted(() => {
   if (!contentEditable.value) {
@@ -46,7 +52,7 @@ const handleInput = () => {
       <div contenteditable ref="contentEditable" @input="handleInput" />
     </div>
     <div class="column">
-      {{ content }}
+      <div v-html="html" />
     </div>
   </div>
 

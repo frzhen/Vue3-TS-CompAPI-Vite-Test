@@ -46,8 +46,9 @@ A Complete Vue3 Composition API in TypeScript
   > Reference Documentation: [pinia 中文文档](https://pinia.vuejs.org/zh/introduction.html)
 - #### Add vue-router
   - `npm i vue-router@latest`
-  - 
+
 --------------------------------------------------------------------
+### 项目支持
 - #### Create a Vue-TS code template in WebStorm
   - Go to `settings->Editor->File and code templates`
   - On the right side, select "Default" `Scheme`(`Project`scheme cannot be re-used for other project)
@@ -90,6 +91,8 @@ A Complete Vue3 Composition API in TypeScript
   "server": "npx ts-node src/server/index.ts",
   ```
   - `npm run server` to run the express server
+- #### Add Markdown support
+  - `npm i marked@latest @types/marked@latest`
 
 
 #### Git branches:
@@ -109,6 +112,7 @@ Key learnings points 学习要点：
   - `computed` method: reactive method for functional components such as derived value such as map, reduce, filter data;
   - `defineProps` method: as same as props in option API;
   - `readonly`: make the object not able to mutate directly, but still reactive;
+  - `v-html`: when you using this directive, re-think if it can be replaced by an new component.
   - #### Composable: 
 - TypeScript:
   - Type constraint;
