@@ -147,7 +147,11 @@ Key learnings points 学习要点：
       - `watch` provides access to the current and previous values.
     - [Article: Vue 3 Composition API - watch and watchEffect](https://www.thisdot.co/blog/vue-3-composition-api-watch-and-watcheffect)
     > For the most of the cases, `watch` and `watchEffect` have the same functionality, however, watch gives you more control and more readability, but too verbose, while watchEffect are simpler with less code but with different definition that not working with some other features such as debounce. 
+  - #### Teleport: 
+    - [`<Teleport>` is a built-in component that allows us to "teleport" a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.
+](https://vuejs.org/guide/built-ins/teleport.html#teleport)
   - #### Composable: 
+    - [a "composable" is a function that leverages Vue's Composition API to encapsulate and resue **stateful logic**.](https://vuejs.org/guide/reusability/composables.html#composables) 
 - TypeScript:
   - Type constraint;
   - Type Guard;
