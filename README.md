@@ -100,6 +100,9 @@ A Complete Vue3 Composition API in TypeScript
   - #### Optimization with `loash` library
   - `npm i lodash@latest @types/lodash@latest`
   - [lodash documentation](https://lodash.com/docs/4.17.15)
+  - using debounce to delay the reactivity for optimization of large content
+  - add import statement inside vue component to use debounce:
+    - `import debounce from "lodash/debounce";`
 
 
 #### Git branches:
