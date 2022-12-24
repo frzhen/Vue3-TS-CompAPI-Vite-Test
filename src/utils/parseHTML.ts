@@ -7,7 +7,7 @@ import {marked} from "marked";
 import highlightjs from "highlight.js";
 import { Ref } from 'vue';
 
-export const parseHTML = ( markdown: string, html: Ref<any>) => {
+export const parseHTML = ( markdown: string, html: Ref<any>): void => {
   marked.parse(markdown, {
     gfm: true,
     breaks: true,

@@ -5,11 +5,9 @@
 -->
 <script setup lang="ts">
 import { TimelinePost } from "../utils/interfaces";
-import { ref, onMounted, watchEffect } from "vue";
-import { marked } from "marked"
-import highlightjs from "highlight.js";
-import debounce from "lodash/debounce";
+import { ref, onMounted,  watch } from "vue";
 import {parseHTML} from "../utils/parseHTML";
+import { debounce } from "lodash";
 
 const props = defineProps<{
   post: TimelinePost,
@@ -21,8 +19,11 @@ const html = ref();
 const contentEditable = ref<HTMLDivElement>();
 
 
-watchEffect(() => {
-  parseHTML(content.value,html);
+// watchEffect(() => parseHTML(content.value, html));
+watch(content, debounce((newContent)=>{
+  parseHTML(newContent, html);
+}, 300), {
+  immediate: true
 });
 
 onMounted(() => {

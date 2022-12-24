@@ -97,12 +97,20 @@ A Complete Vue3 Composition API in TypeScript
 - #### Add Syntax Highlighting support
   - `npm i highlight.js@latest`
   - [highlight.js documentation](https://highlightjs.org/)
-  - #### Optimization with `loash` library
+- #### [Optional] Optimization with `lodash` library
   - `npm i lodash@latest @types/lodash@latest`
   - [lodash documentation](https://lodash.com/docs/4.17.15)
   - using debounce to delay the reactivity for optimization of large content
   - add import statement inside vue component to use debounce:
     - `import debounce from "lodash/debounce";`
+  > This optimization only eliminate unnecessary server calling if an autocomplete mechanism is used with server calling. Thus, for this scenario, it is best to load the localstorage with necessary data instead of keep calling the backend server. Then, the only scenario left to implement this optimization is for large reactive rendering which is very seldom and can be eliminated by either further modularize the app or change the UI behavior. Thus, personally I am not recommend to use debounce which is "gasoline waste".
+  > 
+  > debounce only works with watch() not watchEffect since two has completely different definition underneath that debounce cannot fit the type. 
+  > 
+  > [Article: Debouncing and Throttling](https://medium.com/@akwebengineer/there-are-times-when-we-need-do-expensive-things-on-the-browser-such-as-handling-scroll-events-key-1a2a46404f5e)
+  > 
+  > [Article: The pros and cons of the Throttling architecture pattern](https://www.redhat.com/architect/pros-and-cons-throttling)
+
 
 
 #### Git branches:
