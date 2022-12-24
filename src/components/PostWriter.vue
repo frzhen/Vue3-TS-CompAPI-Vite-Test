@@ -9,6 +9,7 @@ import { ref, onMounted,  watch } from "vue";
 import {parseHTML} from "../utils/parseHTML";
 import { debounce } from "lodash";
 import { usePosts } from "../store/posts";
+import { useRouter } from "vue-router";
 
 const props = defineProps<{
   post: TimelinePost,
@@ -19,6 +20,7 @@ const content = ref(props.post.markdown);
 const html = ref();
 const contentEditable = ref<HTMLDivElement>();
 const posts = usePosts();
+const router = useRouter();
 
 // watchEffect(() => parseHTML(content.value, html));
 watch(content, debounce((newContent)=>{
@@ -41,14 +43,15 @@ const handleInput = () => {
   content.value = contentEditable.value.innerText
 };
 
-const savePost = () => {
+const savePost = async () => {
   const newPost: TimelinePost = {
     ...props.post,
     title: title.value,
     markdown: content.value,
     html: html.value
   };
-  posts.createPost(newPost);
+  await posts.createPost(newPost);
+  await router.push("/");
 }
 </script>
 
@@ -100,14 +103,12 @@ const savePost = () => {
       </div>
     </div>
     <div class="card-footer">
-      <div class="columns">
-        <div class="column">
-          <button class="button is-primary is-pulled-right"
-                  @click="savePost"
-          >
-            Save Post
-          </button>
-        </div>
+      <div class="card-footer-item is-justify-content-end">
+        <button class="button is-primary "
+                @click="savePost"
+        >
+          Save Post
+        </button>
       </div>
     </div>
   </div>

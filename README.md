@@ -91,6 +91,13 @@ A Complete Vue3 Composition API in TypeScript
   "server": "npx ts-node src/server/index.ts",
   ```
   - `npm run server` to run the express server
+  - ##### add body-parser
+    - `npm i -D body-parser@latest @types/body-parser@latest`
+    - add `import bodyParser from "body-parser";` to `server/index.ts`
+    - add the following code in `server/index.ts` before api statements:
+    ```tpescript
+    app.use(bodyParser.json());
+    ```
 - #### Add Markdown support
   - `npm i marked@latest @types/marked@latest`
   - [reference to marked package](https://marked.js.org/)
