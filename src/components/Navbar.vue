@@ -18,6 +18,9 @@
       </div>
     </div>
   </div>
+  <Teleport to="#signInModal">
+    Content to be rendered
+  </Teleport>
 </template>
 
 <style lang='scss' scoped>
