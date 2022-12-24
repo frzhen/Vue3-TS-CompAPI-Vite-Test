@@ -127,4 +127,4 @@ A Complete Vue3 Composition API in TypeScript
 - pinia-reactive-store: pinia implementation to custom-reactive-store's function
 -------------------------------------------------------------
 
-### [Key learnings points 学习要点：](key-learnings-points.md)
+### [Key learnings points 学习要点：](key_learning_points.md)
