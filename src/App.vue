@@ -22,7 +22,7 @@ import Navbar from "./components/Navbar.vue";
 
 <style lang="scss">
 .modal {
-  display: block;
+  display: none;
   color: white;
 }
 </style>

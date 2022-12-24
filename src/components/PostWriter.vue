@@ -70,6 +70,9 @@ const savePost = async () => {
       <!-- TODO: add change left2right display to top-down display -->
       <!-- TODO: add preview highlight theme selection here -->
       <span class="">
+        <i class="fa-solid fa-table-columns mx-6"></i>
+        <i class="fa-solid fa-bars mx-6"></i>
+
         icons
       </span>
     </div>
