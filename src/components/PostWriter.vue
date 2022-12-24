@@ -8,6 +8,7 @@ import { TimelinePost } from "../utils/interfaces";
 import { ref, onMounted,  watch } from "vue";
 import {parseHTML} from "../utils/parseHTML";
 import { debounce } from "lodash";
+import { usePosts } from "../store/posts";
 
 const props = defineProps<{
   post: TimelinePost,
@@ -17,7 +18,7 @@ const title = ref(props.post.title);
 const content = ref(props.post.markdown);
 const html = ref();
 const contentEditable = ref<HTMLDivElement>();
-
+const posts = usePosts();
 
 // watchEffect(() => parseHTML(content.value, html));
 watch(content, debounce((newContent)=>{
@@ -39,6 +40,16 @@ const handleInput = () => {
   }
   content.value = contentEditable.value.innerText
 };
+
+const savePost = () => {
+  const newPost: TimelinePost = {
+    ...props.post,
+    title: title.value,
+    markdown: content.value,
+    html: html.value
+  };
+  posts.createPost(newPost);
+}
 </script>
 
 <template>
@@ -88,7 +99,19 @@ const handleInput = () => {
         </div>
       </div>
     </div>
+    <div class="card-footer">
+      <div class="columns">
+        <div class="column">
+          <button class="button is-primary is-pulled-right"
+                  @click="savePost"
+          >
+            Save Post
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+
 
 </template>
 
