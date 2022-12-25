@@ -4,6 +4,9 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
+import { useModal } from "../composables/modal";
+
+const modal = useModal();
 
 </script>
 
@@ -11,6 +14,9 @@
   <div class="navbar mx-6">
     <div class="navbar-end">
       <div class="buttons">
+        <button class="button" @click="modal.showModal()">
+          Sign in
+        </button>
         <RouterLink to="/posts/new" class="button is-primary is-outlined mr-5">
           <i class="fa-solid fa-plus mr-3" />
           New Post
