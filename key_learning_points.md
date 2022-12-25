@@ -35,6 +35,34 @@ Key learnings points 学习要点：
     > `<progress>` usage to enhance fallback style: `<progress class="progress is-primary is-small />`;
     >
     > Reference: [HTML progress tag](https://www.w3schools.com/tags/tag_progress.asp)
+  - #### custom component
+    - `FormInput` component used props and emitter to simulate v-model action underneath, thus v-model can be used on the component directly.
+    - [Usage with v-model](https://vuejs.org/guide/components/events.html#usage-with-v-model)
+    ```Vue
+       <script setup lang="ts">
+       defineProps<{
+         name: string,
+         modelValue: string,
+       }>();
+
+       const emit = defineEmits<{
+         (event: 'update:modelValue', value: string): void
+       }>();
+
+       const handleInput = (e: Event) => {
+         const value = (e.target as HTMLInputElement).value;
+         emit('update:modelValue', value);
+       }
+       </script>
+       <template>
+         <div class="field">
+           <label :for="name" class="label">{{ name }}</label>
+           <div class="control">
+             <input type="text" :id="name" class="input" :value="modelValue" @input="handleInput">
+           </div>
+         </div>
+      </template>
+    ```
 ----------------------------------------------------------------------------------------
 - ### TypeScript:
     - Type constraint;
