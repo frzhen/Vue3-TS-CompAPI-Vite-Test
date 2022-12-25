@@ -14,7 +14,8 @@ const modal = useModal();
   <div class="navbar mx-6">
     <div class="navbar-end">
       <div class="buttons">
-        <button class="button" @click="modal.showModal()">
+        <button class="button is-danger is-outlined" @click="modal.showModal()">
+          <i class="fa-solid fa-right-to-bracket mr-3" />
           Sign in
         </button>
         <RouterLink to="/posts/new" class="button is-primary is-outlined mr-5">

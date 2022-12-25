@@ -1,15 +1,16 @@
 <script lang="ts" setup>
+import FormInput from "./components/FormInput.vue";
 import Navbar from "./components/Navbar.vue";
 import { useModal } from "./composables/modal";
-import {computed} from "vue";
+import { computed, ref } from "vue";
 
 const signInModal = useModal();
 const modalStyle = computed(() => {
   return {
     display: signInModal.show.value ? 'block' : 'none'
   }
-})
-
+});
+const username = ref('');
 </script>
 <template>
   <div class="modal" :style="modalStyle">
@@ -24,8 +25,10 @@ const modalStyle = computed(() => {
     </button>
   </div>
   <div class="container">
+    <FormInput name="UserName" v-model="username" />
     <Navbar />
     <RouterView />
+    {{ username }}
   </div>
 </template>
 
