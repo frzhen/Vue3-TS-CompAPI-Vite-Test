@@ -46,10 +46,10 @@ export function length({min, max}: {min: number, max: number}): Rule {
 }
 
 // local test: "npx ts-node-esm src/utils/validation.ts"
-console.log(
-  validate('', [required]),
-  validate('username', [required]),
-  validate('a', [length({min: 5, max: 10})]),
-  validate('aaaaaaaaaaaa', [length({min: 5, max: 10})]),
-  validate('username', [length({min: 5, max: 10})]),
-)
+// console.log(
+//   validate('', [required]),
+//   validate('username', [required]),
+//   validate('a', [length({min: 5, max: 10})]),
+//   validate('aaaaaaaaaaaa', [length({min: 5, max: 10})]),
+//   validate('username', [length({min: 5, max: 10})]),
+// )

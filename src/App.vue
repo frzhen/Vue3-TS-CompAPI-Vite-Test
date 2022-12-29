@@ -18,8 +18,7 @@ const modalStyle = computed(() => {
         </div>
       </div>
     </div>
-    <button class="modal-close is-large" @click="signInModal.hideModal()">
-    </button>
+    <button class="modal-close is-large" @click="signInModal.hideModal()"></button>
   </div>
   <div class="container">
     <Navbar />
@@ -28,7 +27,4 @@ const modalStyle = computed(() => {
 </template>
 
 <style lang="scss">
-.modal {
-  color: white;
-}
 </style>
