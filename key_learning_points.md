@@ -63,6 +63,9 @@ Key learnings points 学习要点：
          </div>
       </template>
     ```
+    - Reference: [Input Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+  - #### Custom reusable Validation:
+    - checkout `./src/utils/validation.ts` for implementation;
 ----------------------------------------------------------------------------------------
 - ### TypeScript:
     - Type constraint;
