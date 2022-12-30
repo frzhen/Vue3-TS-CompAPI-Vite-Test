@@ -9,6 +9,7 @@ import {Period, serverUrl} from "../utils/constants";
 import {DateTime} from "luxon";
 import {Post, TimelinePost} from "../utils/interfaces";
 
+const postsUrl = `${serverUrl}/posts`;
 // reactive for complex object, {}, map, set
 interface PostsState {
   // using map/set is more efficient than array/list
@@ -32,7 +33,7 @@ export const usePosts = defineStore("posts", {
       this.selectedPeriod = period;
     },
     async fetchPosts () {
-      const res = await window.fetch(serverUrl);
+      const res = await window.fetch(postsUrl);
       const data = (await res.json()) as Post[];
       await delay()
 
@@ -52,7 +53,7 @@ export const usePosts = defineStore("posts", {
         ...post,
         created: post.created.toISO()
       });
-      return  window.fetch(serverUrl, {
+      return  window.fetch(postsUrl, {
         method: "Post",
         headers: {
           "Content-type": "application/json"
