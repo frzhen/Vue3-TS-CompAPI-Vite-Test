@@ -3,7 +3,7 @@
   * @Date: 2022/12/15 19:55
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { TimelinePost } from "../utils/interfaces";
 
 defineProps<{
