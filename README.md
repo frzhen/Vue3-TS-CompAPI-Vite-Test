@@ -123,6 +123,10 @@ A Complete Vue3 Composition API in TypeScript
   - use refDebounced:
     - `npm i @vueuse/core@latest`
   > Though VueUse is supported by vue core team, the adoption/downloads are less than 400,000 at this point(December 2022) and the project is merely 3-years old. It is hard to determine the future of this library.
+- #### Authentication and Authorization dependencies:
+  - cookie-parser: `npm i cookie-parser@latest @types/cookie-parser@latest`
+  - JWT: `npm i jsonwebtoken@latest @types/jsonwebtoken@latest`
+  - express session: `npm i express-session@latest @types/express-session@latest`
 
 
 #### Git branches:
@@ -130,6 +134,7 @@ A Complete Vue3 Composition API in TypeScript
 - dev(default): development branch
 - custom-reactive-store: a tiny custom state management tool;
 - pinia-reactive-store: pinia implementation to custom-reactive-store's function
+- prod-vite-configuration: configure vite proxy to let both frontend and backend run on the same port, similar to production environment
 -------------------------------------------------------------
 
 ### [Key learnings points 学习要点：](key_learning_points.md)
