@@ -73,6 +73,23 @@ Key learnings points 学习要点：
     - `as const` way to create type definition on the fly;
     - `get` keyword to make a function/method accessible like an object attribute;
     - `async` and `await` keyword usage;
+----------------------------------------------------------------------------------------
+- ### Vite:
+  - config proxy server: to hide the backend with server.proxy configuration:
+  > This configuration will result the frontend call /posts rerouted to backend port, which prevent the backend port expose to the frontend request that can lead to malicious attacks on backend.
+    - reference: [vite config server.proxy](https://vitejs.dev/config/server-options.html#server-proxy)
+    - `vite.config.ts`:
+    ```
+     server: {
+        proxy: {
+            '^/api/.*': {
+            target:'http://localhost:5101',
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/api/, '')
+            }
+        }
+     }
+    ```
 
 ### Additional learning helpers
 - Compare `pinia-reactive-store` branch with `custom-reactive-store`
