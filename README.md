@@ -127,7 +127,21 @@ A Complete Vue3 Composition API in TypeScript
   - cookie-parser: `npm i cookie-parser@latest @types/cookie-parser@latest`
   - JWT: `npm i jsonwebtoken@latest @types/jsonwebtoken@latest`
   - express session: `npm i express-session@latest @types/express-session@latest`
-
+- ### JWT authentication diagram:
+  ```mermaid
+     classDiagram
+     class browser {
+      cookies
+      jwt=ey......,
+      httpOnly=true
+     }
+     class server {
+      req.cookies['jwt']
+      check if valid? Y/N
+     }
+     browser --> server: login
+     server --> browser: response
+  ```
 
 #### Git branches:
 - main: working project with official documentation
