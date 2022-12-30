@@ -50,8 +50,8 @@ async function handleSubmit() {
 </script>
 <template>
   <form class="form" @submit.prevent="handleSubmit">
-    <FormInput name="UserName" v-model="username" :status="usernameStatus"/>
-    <FormInput name="Password" v-model="password" :status="passwordStatus"/>
+    <FormInput type="text" name="UserName" v-model="username" :status="usernameStatus"/>
+    <FormInput type="password" name="Password" v-model="password" :status="passwordStatus"/>
     <div class="buttons is-centered">
       <button class="button is-primary" :disabled="isInvalid">Submit</button>
     </div>

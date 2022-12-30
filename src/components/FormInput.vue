@@ -10,6 +10,7 @@ defineProps<{
   name: string,
   modelValue: string,
   status: Status,
+  type: string
 }>();
 
 const emit = defineEmits<{
@@ -26,10 +27,10 @@ const handleInput = (e: Event) => {
   <div class="field">
     <label :for="name" class="label">{{ name }}</label>
     <div class="control">
-      <input type="text" :id="name" class="input" :value="modelValue" @input="handleInput">
+      <input :type="type" :id="name" class="input" :value="modelValue" @input="handleInput">
     </div>
-    <p class="is-danger help" v-if="!status.valid">
-      {{ status.message }}
+    <p class="is-danger help" v-if="!status['valid']">
+      {{ status['message'] }}
     </p>
   </div>
 </template>
