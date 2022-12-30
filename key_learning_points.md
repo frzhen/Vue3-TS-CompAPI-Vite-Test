@@ -94,3 +94,4 @@ Key learnings points 学习要点：
 ### Additional learning helpers
 - Compare `pinia-reactive-store` branch with `custom-reactive-store`
     - checkout one of the branch, and Select project root folder, and right click `Git->Compare with branch`
+- [Environment Variables, or Keeping Your Secrets in a Node.js App](https://medium.com/codait/environment-variables-or-keeping-your-secrets-secret-in-a-node-js-app-99019dfff716)
