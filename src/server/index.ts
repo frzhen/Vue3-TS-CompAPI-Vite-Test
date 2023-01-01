@@ -62,6 +62,17 @@ app.get("/current-user", (req, res) => {
   }
 })
 
+app.post<{}, {}, NewUser>("/login", (req, res) => {
+  const targetUser = allUsers.find(x => x.username === req.body.username);
+
+  if (!targetUser || targetUser.password !== req.body.password) {
+    res.status(401).end();
+  } else {
+    authenticate(targetUser.id, req, res);
+    res.status(200).end();
+  }
+})
+
 app.post("/logout", (req, res)=> {
   res.cookie(COOKIE, "", { httpOnly: true });
   res.status(200).end();
