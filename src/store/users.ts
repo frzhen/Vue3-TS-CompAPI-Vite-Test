@@ -4,10 +4,8 @@
  * @Email: fred.zhen@gmail.com
  */
 import { defineStore } from "pinia";
-import { serverUrl } from "../utils/constants";
+import { apiUrl } from "../utils/constants";
 import { NewUser } from "../utils/users";
-
-const usersUrl = `${serverUrl}/users`;
 
 interface UsersState {
   currentUserId?: string;
@@ -18,17 +16,21 @@ export const useUsers = defineStore("users", {
   }),
   actions: {
     async authenticate () {
-      const res = await window.fetch("/api/current-user", {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const result = await res.json();
-      this.currentUserId = result.id;
+      try {
+        const res = await window.fetch(`${apiUrl}/current-user`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const result = await res.json();
+        this.currentUserId = result.id;
+      } catch (e) {
+        this.currentUserId = undefined;
+      }
     },
     async createUser(newUser: NewUser) {
       const body = JSON.stringify(newUser);
-      await  window.fetch(usersUrl, {
+      await  window.fetch(`${apiUrl}/users`, {
         method: "Post",
         headers: {
           "Content-type": "application/json"
@@ -36,7 +38,16 @@ export const useUsers = defineStore("users", {
         body
       });
       return this.authenticate();
-    }
+    },
+    async logout() {
+      await window.fetch(`${apiUrl}/logout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return this.authenticate();
+    },
   },
 
 })

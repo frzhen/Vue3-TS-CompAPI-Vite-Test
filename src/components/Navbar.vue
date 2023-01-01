@@ -17,7 +17,7 @@ const usersStore = useUsers();
   <div class="navbar mx-6">
     <div class="navbar-end">
       <div v-if="usersStore.currentUserId" class="buttons">
-        <button class="button is-danger is-outlined" @click="modal.showModal()">
+        <button class="button is-danger is-outlined" @click="usersStore.logout()">
           <i class="fa-solid fa-right-to-bracket mr-3" />
           Log out
         </button>

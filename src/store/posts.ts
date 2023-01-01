@@ -5,11 +5,11 @@
  */
 import { defineStore } from 'pinia';
 import {today, thisWeek, thisMonth} from "../utils/1time_use";
-import {Period, serverUrl} from "../utils/constants";
+import {Period, apiUrl} from "../utils/constants";
 import {DateTime} from "luxon";
 import {Post, TimelinePost} from "../utils/interfaces";
 
-const postsUrl = `${serverUrl}/posts`;
+const postsUrl = `${apiUrl}/posts`;
 // reactive for complex object, {}, map, set
 interface PostsState {
   // using map/set is more efficient than array/list
