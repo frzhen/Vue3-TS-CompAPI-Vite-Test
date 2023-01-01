@@ -51,6 +51,16 @@ app.get("/users", (req, res) => {
   }
   res.json(resAllUsers);
 });
+
+app.get("/current-user", (req, res) => {
+  try {
+    const token = req.cookies[COOKIE];
+    const result = jsonwebtoken.verify(token, SECRET) as { id: string };
+    res.json({ id: result.id });
+  } catch (e) {
+    res.status(404).end();
+  }
+})
 app.post<{}, {}, NewUser>("/users", (req, res) => {
   const user: User = { ...req.body, id: (Math.random() * 100000).toFixed()};
   allUsers.push(user);

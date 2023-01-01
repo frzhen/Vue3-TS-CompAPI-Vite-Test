@@ -8,17 +8,34 @@ import { serverUrl } from "../utils/constants";
 import { NewUser } from "../utils/users";
 
 const usersUrl = `${serverUrl}/users`;
+
+interface UsersState {
+  currentUserId?: string;
+}
 export const useUsers = defineStore("users", {
+  state: (): UsersState => ({
+    currentUserId: undefined,
+  }),
   actions: {
-    createUser(newUser: NewUser) {
+    async authenticate () {
+      const res = await window.fetch("/api/current-user", {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const result = await res.json();
+      this.currentUserId = result.id;
+    },
+    async createUser(newUser: NewUser) {
       const body = JSON.stringify(newUser);
-      return  window.fetch(usersUrl, {
+      await  window.fetch(usersUrl, {
         method: "Post",
         headers: {
           "Content-type": "application/json"
         },
         body
       });
+      return this.authenticate();
     }
   },
 
