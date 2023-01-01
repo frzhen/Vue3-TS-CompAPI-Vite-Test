@@ -17,8 +17,8 @@ const usersStore = useUsers();
     <div class="navbar-end">
       <div v-if="usersStore.currentUserId" class="buttons">
         <button class="button is-danger is-outlined" @click="usersStore.logout()">
-          <i class="fa-solid fa-right-to-bracket mr-3" />
           Log out
+          <i class="fa-solid fa-right-from-bracket ml-3" />
         </button>
         <RouterLink to="/posts/new" class="button is-primary is-outlined mr-5">
           <i class="fa-solid fa-plus mr-3" />
@@ -27,10 +27,10 @@ const usersStore = useUsers();
       </div>
       <div v-else class="buttons">
         <button class="button is-danger is-outlined" @click="modal.showModal('signUp')">
-          <i class="fa-solid fa-right-to-bracket mr-3" />
+          <i class="fa-solid fa-user-plus mr-3" />
           Sign up
         </button>
-        <button class="button is-danger is-outlined" @click="modal.showModal('signIn')">
+        <button class="button is-primary is-outlined" @click="modal.showModal('signIn')">
           <i class="fa-solid fa-right-to-bracket mr-3" />
           Sign in
         </button>
