@@ -16,7 +16,6 @@ export const useModal = () => {
     show,
     component,
     showModal: (type: 'signUp' | 'signIn') => {
-      console.log(SignupForm);
       show.value = true;
       switch (type) {
         case 'signUp': return component.value = SignupForm;
