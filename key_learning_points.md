@@ -11,6 +11,8 @@ Key learnings points 学习要点：
     - `defineProps` method: as same as props in option API;
     - `readonly`: make the object not able to mutate directly, but still reactive;
     - `v-html`: when you're using this directive, re-think if it can be replaced by a new component.
+    - `<component>`: to dynamically assign component.
+      - `shallowRef` should be used for dynamic component for better performance
     - #### `watch` and `watchEffect` methods:
         - differentiate between watch and computed method. The watch method is best to use on the case that an async operation need a DOM mutation and state effect.
         - Differences between `watch` and `watchEffect`:

@@ -5,7 +5,6 @@
 -->
 <script setup lang="ts">
 import { useModal } from "../composables/modal";
-import SignupForm from "./SignupForm.vue";
 import { useUsers } from "../store/users";
 
 const modal = useModal();
@@ -27,19 +26,19 @@ const usersStore = useUsers();
         </RouterLink>
       </div>
       <div v-else class="buttons">
-        <button class="button is-danger is-outlined" @click="modal.showModal()">
+        <button class="button is-danger is-outlined" @click="modal.showModal('signUp')">
           <i class="fa-solid fa-right-to-bracket mr-3" />
           Sign up
         </button>
-        <RouterLink to="/posts/new" class="button is-primary is-outlined mr-5">
-          <i class="fa-solid fa-plus mr-3" />
+        <button class="button is-danger is-outlined" @click="modal.showModal('signIn')">
+          <i class="fa-solid fa-right-to-bracket mr-3" />
           Sign in
-        </RouterLink>
+        </button>
       </div>
     </div>
   </div>
   <Teleport to="#signInModal">
-    <SignupForm />
+    <component :is="modal.component.value" />
   </Teleport>
 </template>
 

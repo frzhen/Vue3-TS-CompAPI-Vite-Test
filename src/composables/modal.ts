@@ -3,14 +3,26 @@
  * @Date: 2022/12/25 11:59
  * @Email: fred.zhen@gmail.com
  */
-import { ref } from "vue";
+import { ref, shallowRef } from "vue";
+import SignupForm from "../components/SignupForm.vue";
+import SigninForm from "../components/SigninForm.vue";
 
 const show = ref(false);
+const component = shallowRef();
+
 
 export const useModal = () => {
   return {
     show,
-    showModal: () => (show.value = true),
+    component,
+    showModal: (type: 'signUp' | 'signIn') => {
+      console.log(SignupForm);
+      show.value = true;
+      switch (type) {
+        case 'signUp': return component.value = SignupForm;
+        case 'signIn': return component.value= SigninForm;
+      }
+    },
     hideModal: () => (show.value = false),
   };
 }
