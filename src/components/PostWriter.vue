@@ -10,6 +10,7 @@ import {parseHTML} from "../utils/parseHTML";
 import { debounce } from "lodash";
 import { usePosts } from "../store/posts";
 import { useRouter } from "vue-router";
+import { useUsers } from "../store/users";
 
 const props = defineProps<{
   post: TimelinePost | Post,
@@ -21,6 +22,7 @@ const html = ref();
 const contentEditable = ref<HTMLDivElement>();
 const posts = usePosts();
 const router = useRouter();
+const usersStore = useUsers();
 
 // watchEffect(() => parseHTML(content.value, html));
 watch(content, debounce((newContent)=>{
@@ -44,9 +46,14 @@ const handleInput = () => {
 };
 
 const savePost = async () => {
-  const newPost: TimelinePost = {
+  if (!usersStore.currentUserId) {
+    throw Error('User was not found');
+  }
+  const newPost: Post = {
     ...props.post,
+    created: typeof props.post.created === 'string' ? props.post.created : props.post.created.toISO(),
     title: title.value,
+    authorId: usersStore.currentUserId,
     markdown: content.value,
     html: html.value
   };

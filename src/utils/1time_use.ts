@@ -10,6 +10,7 @@ import {Post} from "./interfaces";
 export const today: Post = {
   id: "1",
   title: "Today",
+  authorId: "-1",
   created: DateTime.now().toISO(),
   markdown: '',
   html: ''
@@ -18,6 +19,7 @@ export const today: Post = {
 export const thisWeek: Post = {
   id: "2",
   title: "This Week",
+  authorId: "-1",
   created: DateTime.now().minus({day: 5}).toISO(),
   markdown: '',
   html: ''
@@ -26,6 +28,7 @@ export const thisWeek: Post = {
 export const thisMonth: Post = {
   id: "3",
   title: "This Month",
+  authorId: "-1",
   created: DateTime.now().minus({ week: 3}).toISO(),
   markdown: '',
   html: ''

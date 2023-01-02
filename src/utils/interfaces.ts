@@ -9,6 +9,7 @@ import {DateTime} from "luxon";
 export interface Post {
   id: string;
   title: string;
+  authorId: string;
   created: string;
   markdown: string;
   html: string;
