@@ -8,8 +8,23 @@ import { createPinia } from "pinia";
 import { router } from "./routers";
 import { createApp } from 'vue';
 import App from './App.vue';
+import { useUsers } from "./store/users";
+import { usePosts } from "./store/posts";
 
-createApp(App)
-  .use(createPinia())
-  .use(router)
-  .mount('#app');
+const app = createApp(App);
+app.use(createPinia());
+
+// The following should be after Pinia is used
+const usersStore = useUsers();
+const postsStore = usePosts();
+
+// Race condition solution: to execute api request before use router(with Navigation Guard)
+Promise.all([
+  usersStore.authenticate(),
+  postsStore.fetchPosts()
+]).then(() => {
+  app.use(router);
+  app.mount('#app');
+})
+
+
