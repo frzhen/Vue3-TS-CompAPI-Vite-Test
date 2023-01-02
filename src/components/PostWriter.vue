@@ -39,6 +39,7 @@ onMounted(() => {
     throw Error('ContentEditable DOM node was not found');
   }
   contentEditable.value.innerText = content.value;
+  console.log(contentEditable.value);
 });
 
 const handleInput = () => {
@@ -62,6 +63,13 @@ const savePost = async () => {
   };
   emit('submit', newPost);
 }
+
+const topDownLayout = ref(false);
+
+function toggleLayout() {
+  topDownLayout.value = !topDownLayout.value;
+}
+
 </script>
 
 <template>
@@ -75,17 +83,7 @@ const savePost = async () => {
         <input type="text" class="input" v-model="title">
       </div>
     </div>
-    <div class="card-content mb-1 pb-1 is-justify-content-flex-end">
-      <!-- TODO: add change left2right display to top-down display -->
-      <!-- TODO: add preview highlight theme selection here -->
-      <span class="">
-        <i class="fa-solid fa-table-columns mx-6"></i>
-        <i class="fa-solid fa-bars mx-6"></i>
-
-        icons
-      </span>
-    </div>
-    <div class="card-content pt-1">
+    <div class="card-content">
       <div class="columns">
         <div class="column">
           <div class="panel">
