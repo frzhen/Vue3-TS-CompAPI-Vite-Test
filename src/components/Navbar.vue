@@ -3,10 +3,11 @@
   * @Date: 2022/12/19 09:37
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useRouter } from 'vue-router';
 import { useModal } from "../composables/modal";
 import { useUsers } from "../store/users";
+import {authenticatingType} from "../utils/constants";
 
 const modal = useModal();
 const usersStore = useUsers();
@@ -32,18 +33,18 @@ async function logout() {
         </RouterLink>
       </div>
       <div v-else class="buttons">
-        <button class="button is-danger is-outlined" @click="modal.showModal('signUp')">
+        <button class="button is-danger is-outlined" @click="modal.showModal(authenticatingType.register)">
           <i class="fa-solid fa-user-plus mr-3" />
-          Sign up
+          Register
         </button>
-        <button class="button is-primary is-outlined" @click="modal.showModal('signIn')">
+        <button class="button is-primary is-outlined" @click="modal.showModal(authenticatingType.logIn)">
           <i class="fa-solid fa-right-to-bracket mr-3" />
-          Sign in
+          Log in
         </button>
       </div>
     </div>
   </div>
-  <Teleport to="#signInModal">
+  <Teleport to="#modal">
     <component :is="modal.component.value" />
   </Teleport>
 </template>

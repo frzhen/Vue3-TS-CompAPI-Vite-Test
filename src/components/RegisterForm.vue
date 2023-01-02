@@ -12,13 +12,13 @@ import UserForm from "./UserForm.vue";
 const usersStore = useUsers();
 const modal = useModal();
 
-async function handleSignup ( newUser: NewUser) {
-    await usersStore.createUser(newUser);
+async function handleRegister ( newUser: NewUser) {
+    await usersStore.registerUser(newUser);
     modal.hideModal();
 }
 </script>
 <template>
- <UserForm @submit="handleSignup"/>
+ <UserForm @submit="handleRegister"/>
 </template>
 
 <style lang='scss' scoped>

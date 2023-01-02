@@ -3,7 +3,7 @@
   * @Date: 2022/12/25 13:25
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Status } from "../utils/validation";
 
 defineProps<{

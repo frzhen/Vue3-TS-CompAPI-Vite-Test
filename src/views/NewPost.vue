@@ -3,7 +3,7 @@
   * @Date: 2022/12/19 09:40
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import PostWriter from "../components/PostWriter.vue";
 import { TimelinePost } from "../utils/interfaces";
 import { DateTime } from "luxon";

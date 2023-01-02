@@ -3,7 +3,7 @@
   * @Date: 2022/12/15 09:10
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import TimelineItem from "./TimelineItem.vue";
 import { usePosts } from "../store/posts";
 import { periods } from "../utils/constants";

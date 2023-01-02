@@ -15,7 +15,7 @@ const usersStore = useUsers();
 const modal = useModal();
 const error = ref('');
 
-async function handleSignin (newUser: NewUser) {
+async function handleLogin (newUser: NewUser) {
   //1. request
   const body = JSON.stringify(newUser);
   const res = await window.fetch(`${apiUrl}/login`, {
@@ -37,7 +37,7 @@ async function handleSignin (newUser: NewUser) {
 }
 </script>
 <template>
-  <UserForm @submit="handleSignin" :error="error"/>
+  <UserForm @submit="handleLogin" :error="error"/>
 </template>
 
 <style lang='scss' scoped>

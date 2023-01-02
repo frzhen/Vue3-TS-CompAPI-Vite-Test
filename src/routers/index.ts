@@ -6,6 +6,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import NewPost from "../views/NewPost.vue";
+import ShowPost from "../views/ShowPost.vue";
 import { useUsers } from "../store/users";
 
 export const router = createRouter({
@@ -27,6 +28,10 @@ export const router = createRouter({
           }
         }
       }
-    }
+    },
+    {
+      path: "/posts/:id",
+      component: ShowPost,
+    },
   ]
 })

@@ -28,9 +28,9 @@ export const useUsers = defineStore("users", {
         this.currentUserId = undefined;
       }
     },
-    async createUser(newUser: NewUser) {
+    async registerUser(newUser: NewUser) {
       const body = JSON.stringify(newUser);
-      await  window.fetch(`${apiUrl}/users`, {
+      await  window.fetch(`${apiUrl}/register-user`, {
         method: "Post",
         headers: {
           "Content-type": "application/json"

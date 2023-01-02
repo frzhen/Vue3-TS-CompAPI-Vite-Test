@@ -3,7 +3,7 @@
   * @Date: 2022/12/19 08:58
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import Timeline from "../components/Timeline.vue";
 
 </script>

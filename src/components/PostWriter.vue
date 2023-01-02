@@ -3,7 +3,7 @@
   * @Date: 2022/12/19 11:26
   * @Email: fred.zhen@gmail.com
 -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { TimelinePost } from "../utils/interfaces";
 import { ref, onMounted,  watch } from "vue";
 import {parseHTML} from "../utils/parseHTML";

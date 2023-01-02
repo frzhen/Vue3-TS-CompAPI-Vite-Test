@@ -77,7 +77,7 @@ app.post("/logout", (req, res)=> {
   res.cookie(COOKIE, "", { httpOnly: true });
   res.status(200).end();
 })
-app.post<{}, {}, NewUser>("/users", (req, res) => {
+app.post<{}, {}, NewUser>("/register-user", (req, res) => {
   const user: User = { ...req.body, id: (Math.random() * 100000).toFixed()};
   allUsers.push(user);
   authenticate(user.id, req, res);

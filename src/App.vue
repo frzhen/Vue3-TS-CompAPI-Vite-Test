@@ -4,11 +4,11 @@ import { useModal } from "./composables/modal";
 import { computed } from "vue";
 import { useUsers } from "./store/users";
 
-const signInModal = useModal();
+const modal = useModal();
 const usersStore = useUsers();
 const modalStyle = computed(() => {
   return {
-    display: signInModal.show.value ? 'block' : 'none'
+    display: modal.show.value ? 'block' : 'none'
   }
 });
 
@@ -18,11 +18,11 @@ usersStore.authenticate();
   <div class="modal" :style="modalStyle">
     <div class="modal-background">
       <div class="modal-content">
-        <div id="signInModal">
+        <div id="modal">
         </div>
       </div>
     </div>
-    <button class="modal-close is-large" @click="signInModal.hideModal()"></button>
+    <button class="modal-close is-large" @click="modal.hideModal()"></button>
   </div>
   <div class="container">
     <Navbar />

@@ -11,3 +11,8 @@ export type Period = typeof periods[number];
 
 export const serverPort: number = 5101;
 export const apiUrl: string = '/api';
+
+export enum authenticatingType {
+  register = 'register',
+  logIn = 'logIn'
+}
