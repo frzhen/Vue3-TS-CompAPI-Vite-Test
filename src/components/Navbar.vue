@@ -4,19 +4,25 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { useModal } from "../composables/modal";
 import { useUsers } from "../store/users";
 
 const modal = useModal();
 const usersStore = useUsers();
+const router = useRouter();
 
+async function logout() {
+  await usersStore.logout();
+  await router.push({path: "/"});
+}
 </script>
 
 <template>
   <div class="navbar mx-6">
     <div class="navbar-end">
       <div v-if="usersStore.currentUserId" class="buttons">
-        <button class="button is-danger is-outlined" @click="usersStore.logout()">
+        <button class="button is-danger is-outlined" @click="logout()">
           Log out
           <i class="fa-solid fa-right-from-bracket ml-3" />
         </button>

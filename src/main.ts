@@ -5,7 +5,7 @@ import '../node_modules/bulma/css/bulma.min.css';
 import "highlight.js/styles/atom-one-dark.css";
 import '../src/assets/scss/main.scss'
 import { createPinia } from "pinia";
-import { router } from "./router"
+import { router } from "./routers";
 import { createApp } from 'vue';
 import App from './App.vue';
 
