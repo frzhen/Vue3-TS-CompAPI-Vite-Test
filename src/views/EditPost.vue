@@ -1,9 +1,10 @@
 <!--
   * @Author: Fred R. Zhen
-  * @Date: 2023/1/2 12:39
+  * @Date: 2023/1/2 21:42
   * @Email: fred.zhen@gmail.com
 -->
 <script lang="ts" setup>
+import PostWriter from "../components/PostWriter.vue";
 import { useRoute } from "vue-router";
 import { usePosts } from "../store/posts";
 
@@ -19,26 +20,16 @@ if (!post) {
 </script>
 
 <template>
-  <div class="columns">
-    <div class="column"></div>
-    <div class="column is-two-thirds">
-      <RouterLink
-        :to="`/posts/${post.id}/edit`"
-        class="button is-link is-outlined is-rounded py-2 mb-3">
+  <div class="container mx-6 my-3">
+    <div class="box">
+      <div class="title is-4">
         Edit Post
-      </RouterLink>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-header-title">
-            {{ post.title }}
-          </div>
-        </div>
-        <div class="card-content" v-html="post.html" />
       </div>
-
+      <PostWriter :post="post" />
     </div>
-    <div class="column"></div>
+
   </div>
+
 </template>
 
 <style lang='scss' scoped>

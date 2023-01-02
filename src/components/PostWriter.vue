@@ -4,7 +4,7 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script lang="ts" setup>
-import { TimelinePost } from "../utils/interfaces";
+import {Post, TimelinePost} from "../utils/interfaces";
 import { ref, onMounted,  watch } from "vue";
 import {parseHTML} from "../utils/parseHTML";
 import { debounce } from "lodash";
@@ -12,7 +12,7 @@ import { usePosts } from "../store/posts";
 import { useRouter } from "vue-router";
 
 const props = defineProps<{
-  post: TimelinePost,
+  post: TimelinePost | Post,
 }>();
 
 const title = ref(props.post.title);
