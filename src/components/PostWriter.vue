@@ -16,6 +16,9 @@ const props = defineProps<{
   post: TimelinePost | Post,
 }>();
 
+const emit = defineEmits<{
+  (event: "submit", post: Post ): void;
+}>();
 const title = ref(props.post.title);
 const content = ref(props.post.markdown);
 const html = ref();
@@ -57,8 +60,7 @@ const savePost = async () => {
     markdown: content.value,
     html: html.value
   };
-  await posts.createPost(newPost);
-  await router.push("/");
+  emit('submit', newPost);
 }
 </script>
 

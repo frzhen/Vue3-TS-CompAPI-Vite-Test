@@ -5,11 +5,14 @@
 -->
 <script lang="ts" setup>
 import PostWriter from "../components/PostWriter.vue";
-import { TimelinePost } from "../utils/interfaces";
+import {Post, TimelinePost} from "../utils/interfaces";
 import { DateTime } from "luxon";
 import {useUsers} from "../store/users";
+import {useRouter} from "vue-router";
+import {usePosts} from "../store/posts";
 
-
+const router = useRouter();
+const postsStore = usePosts();
 const usersStore = useUsers();
 
 if (!usersStore.currentUserId) {
@@ -24,6 +27,11 @@ const post: TimelinePost = {
   markdown: '## Title',
   html: '<h2>Title</h2>'
 }
+
+async function handleSubmit(post: Post) {
+  await postsStore.createPost(post);
+  await router.push("/");
+}
 </script>
 
 <template>
@@ -32,7 +40,7 @@ const post: TimelinePost = {
       <div class="title is-4">
         New Post
       </div>
-      <PostWriter :post="post" />
+      <PostWriter :post="post" @submit="handleSubmit" />
     </div>
 
   </div>

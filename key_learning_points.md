@@ -14,6 +14,13 @@ Key learnings points 学习要点：
     - `<component>`: to dynamically assign component.
       - `shallowRef` should be used for dynamic component for better performance
     - `vue-router`, use `useRouter()` in script is the same as using `$route` in template
+    - `emit` using `defineEmits()` function:
+      - example:
+        ```typescript
+        const emit = defineEmits<{
+            (event: "submit", post: Post ): void;
+        }>();
+        ```
     - #### `watch` and `watchEffect` methods:
         - differentiate between watch and computed method. The watch method is best to use on the case that an async operation need a DOM mutation and state effect.
         - Differences between `watch` and `watchEffect`:
