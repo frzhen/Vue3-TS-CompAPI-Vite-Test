@@ -6,9 +6,12 @@
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
 import { usePosts } from "../store/posts";
+import {useUsers} from "../store/users";
+import {computed} from "vue";
 
 const route = useRoute();
 const postsStore = usePosts();
+const usersStore = useUsers();
 // get id from routing
 const id = route.params.id as string;
 const post = postsStore.all.get(id);
@@ -16,6 +19,14 @@ const post = postsStore.all.get(id);
 if (!post) {
   throw Error(`Post with id ${id} was not found`);
 }
+
+const canEdit = computed(() => {
+  if (!usersStore.currentUserId) {
+    return false;
+  }
+  return usersStore.currentUserId === post.authorId;
+
+});
 </script>
 
 <template>
@@ -23,6 +34,7 @@ if (!post) {
     <div class="column"></div>
     <div class="column is-two-thirds">
       <RouterLink
+        v-if="canEdit"
         :to="`/posts/${post.id}/edit`"
         class="button is-link is-outlined is-rounded py-2 mb-3">
         Edit Post
