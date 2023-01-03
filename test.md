@@ -1,4 +1,4 @@
-### Component Testing (Vitest, Vue Test Utils)
+Component Testing (Vitest, Vue Test Utils)
 ==============================================
 
 
@@ -17,11 +17,26 @@
     ```
 ### Run:
 - Create test file(`.spec.ts` file) and `npx vitest`
-#### Vitest and 
-- Vitest is imilar to Jest, but more modern approach and fully integrated with Vite
-- [Jest Framework](https://jestjs.io/)
 
+----------------------------------------------------
+#### Vitest
+- Vitest is similar to Jest, but more modern approach and fully integrated with Vite
+- [Jest Framework](https://jestjs.io/)
+- ##### [API Reference](https://vitest.dev/api/)
+  - [describe](https://vitest.dev/api/#describe)
+  - [it](https://vitest.dev/api/#test):
+      - [`.only`](https://vitest.dev/api/#test-only): only run this test in the file, skipped the rest of the tests;
+      - [`.concurrent`](https://vitest.dev/api/#test-concurrent): run tests concurrently;
+      - [`.skip`](https://vitest.dev/api/#test-skip): skip certain tests;
+      - [`.runIf`](https://vitest.dev/api/#test-runif): run when a condition is met;
+      - [`.todo`](https://vitest.dev/api/#test-todo): means to implement the test later, an entry will show on report;
+      - [`.fails`](https://vitest.dev/api/#test-fails): indicate that an assertion will fail explicitly;
+
+----------------------------------------------------
 #### Vue Test Utils:
+- [API Reference](https://test-utils.vuejs.org/api/)
+- [`mount` function](https://test-utils.vuejs.org/api/#mount)
+- [Wrapper methods](https://test-utils.vuejs.org/api/#wrapper-methods)
 
 
 - end-to-end testing:
@@ -29,4 +44,4 @@
   - [Plywright](https://playwright.dev/)
 
 #### Cypress:
-- lectures: [Implement the same test with cypress](https://www.youtube.com/watch?v=nLBwVOJDT1I)
+- Lectures: [Implement the same test with cypress](https://www.youtube.com/watch?v=nLBwVOJDT1I)
