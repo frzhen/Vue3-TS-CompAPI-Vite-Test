@@ -16,7 +16,9 @@ Component Testing (Vitest, Vue Test Utils)
        }
     ```
 ### Run:
-- Create test file(`.spec.ts` file) and `npx vitest`
+- Create test file(`.spec.ts` file)
+- Run all test `npx vitest`
+- Run specific test file `npx vitest <file_path>`
 
 ----------------------------------------------------
 #### Vitest
@@ -46,6 +48,7 @@ Component Testing (Vitest, Vue Test Utils)
   - [`setValue`](https://test-utils.vuejs.org/api/#setvalue): Sets a value on DOM element, including `<input>`, `<select>`;
   - [`global`](https://test-utils.vuejs.org/api/#global):
     - [`global.plugins](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
+- ##### [Testing Teleport](https://test-utils.vuejs.org/guide/advanced/teleport.html)
 
 
 - end-to-end testing:
