@@ -149,6 +149,7 @@ A Complete Vue3 Composition API in TypeScript
 - custom-reactive-store: a tiny custom state management tool;
 - pinia-reactive-store: pinia implementation to custom-reactive-store's function
 - prod-vite-configuration: configure vite proxy to let both frontend and backend run on the same port, similar to production environment
+- prod: production deployment branch
 -------------------------------------------------------------
 
 ### [Key learnings points 学习要点：](key_learning_points.md)

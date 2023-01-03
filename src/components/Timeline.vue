@@ -27,7 +27,7 @@ await postsStore.fetchPosts();
     </span>
     <TimelineItem
       v-for="post of postsStore.filteredPosts"
-      :key="post"
+      :key="post.id"
       :post="post" />
   </nav>
 </template>
