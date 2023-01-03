@@ -150,6 +150,8 @@ A Complete Vue3 Composition API in TypeScript
 - pinia-reactive-store: pinia implementation to custom-reactive-store's function
 - prod-vite-configuration: configure vite proxy to let both frontend and backend run on the same port, similar to production environment
 - prod: production deployment branch
+- Vitest: unit testing with [Vitest](https://vitest.dev/)
 -------------------------------------------------------------
 
 ### [Key learnings points 学习要点：](key_learning_points.md)
+### [Component Testing with Vitest and Vue Test Utils](test.md)

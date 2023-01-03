@@ -13,6 +13,7 @@ Key learnings points 学习要点：
     - `v-html` directive: when you're using this directive, re-think if it can be replaced by a new component.
     - `<component>`: to dynamically assign component.
       - `shallowRef` should be used for dynamic component for better performance
+      - for more composable example: [checkout VueUse](https://vueuse.org/guide/)
     - `vue-router`, use `useRouter()` in script is the same as using `$route` in template
     - `emit` using `defineEmits()` function:
       - example:
