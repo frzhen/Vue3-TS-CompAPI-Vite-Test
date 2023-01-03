@@ -49,7 +49,14 @@ Component Testing (Vitest, Vue Test Utils)
   - [`global`](https://test-utils.vuejs.org/api/#global):
     - [`global.plugins](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
 - ##### [Testing Teleport](https://test-utils.vuejs.org/guide/advanced/teleport.html)
-
+________________________________________________________
+#### Additional test notes:
+- use `id` vs `data-testId`:
+  > `data-testId` is a made-up attribute specifically for the test, which will not change during development while the normal attribute changes during development.
+   ```Typescript
+     expect(wrapper.find('#register').exists()).toBe(true);
+     expect(wrapper.find('[data-testId="login"]').exists()).toBe(true);
+   ```
 
 - end-to-end testing:
   - [cypress](https://www.cypress.io/)
