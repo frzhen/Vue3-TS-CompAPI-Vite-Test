@@ -10,6 +10,8 @@ import ShowPost from "../views/ShowPost.vue";
 import { useUsers } from "../store/users";
 import EditPost from "../views/EditPost.vue";
 
+// export all routes in a single array
+// helps to make test easier to access routes
 export const routes = [
   {
     path: '/',
