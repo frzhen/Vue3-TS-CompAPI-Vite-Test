@@ -31,12 +31,21 @@ Component Testing (Vitest, Vue Test Utils)
       - [`.runIf`](https://vitest.dev/api/#test-runif): run when a condition is met;
       - [`.todo`](https://vitest.dev/api/#test-todo): means to implement the test later, an entry will show on report;
       - [`.fails`](https://vitest.dev/api/#test-fails): indicate that an assertion will fail explicitly;
+  - [`expect`](https://vitest.dev/api/#expect): used to create assertions;
+  - [`toBe`](https://vitest.dev/api/#tobe): can be used to assert if primitives are equal or that objects share the same reference;
 
 ----------------------------------------------------
 #### Vue Test Utils:
 - [API Reference](https://test-utils.vuejs.org/api/)
 - [`mount` function](https://test-utils.vuejs.org/api/#mount)
 - [Wrapper methods](https://test-utils.vuejs.org/api/#wrapper-methods)
+  - [`find`](https://test-utils.vuejs.org/api/#find): Finds an element and returns a DOMWrapper if one is found;
+  - [`exists`](https://test-utils.vuejs.org/api/#exists): Verify whether an element exists or not;
+  - [`html()`](https://test-utils.vuejs.org/api/#html): Returns the HTML of an element;
+  - [`text`](https://test-utils.vuejs.org/api/#text): Returns the text content of an element;
+  - [`setValue`](https://test-utils.vuejs.org/api/#setvalue): Sets a value on DOM element, including `<input>`, `<select>`;
+  - [`global`](https://test-utils.vuejs.org/api/#global):
+    - [`global.plugins](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
 
 
 - end-to-end testing:
