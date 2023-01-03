@@ -6,8 +6,53 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 import FormInput from './FormInput.vue';
+import {computed, defineComponent, ref} from "vue";
 
 describe("FormInput", () => {
+  // larger and a completed test
+  // use it.only to only execute this test
+  it("test validation", async () => {
+    const Parent = defineComponent({
+      components: { FormInput },
+      template: `
+      <FormInput 
+        name="foo" 
+        type="input"
+        :status="status"
+        v-model="formValue"
+      />`,
+      setup () {
+        const formValue = ref('foo');
+        const status = computed(() => {
+          if (formValue.value.length > 5) {
+            return {
+              valid: true
+            }
+          } else {
+            return {
+              valid: false,
+              message: 'error'
+            }
+          }
+        });
+        return {
+          formValue,
+          status
+        }
+      }
+    });
+    const wrapper = mount(Parent);
+
+    // console.log(wrapper.html());
+    expect(wrapper.find('.is-danger').text()).toBe('error');
+
+    await wrapper.find('input').setValue('foobar');
+
+    // console.log(wrapper.html());
+    expect(wrapper.find('.is-danger').exists()).toBe(false);
+  });
+
+  // smaller and focused tests
   it("renders some errors", () => {
     const wrapper = mount(FormInput, {
       props: {
@@ -24,6 +69,7 @@ describe("FormInput", () => {
 
     expect(wrapper.find('.is-danger').exists()).toBe(true);
   });
+
   it("renders no error", () => {
     const wrapper = mount(FormInput, {
       props: {
