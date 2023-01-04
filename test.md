@@ -19,6 +19,7 @@ Component Testing (Vitest, Vue Test Utils)
 - Create test file(`.spec.ts` file)
 - Run all test `npx vitest`
 - Run specific test file `npx vitest <file_path>`
+- Example: `npx vitest src/components/Navbar.spec.ts`
 
 ----------------------------------------------------
 #### Vitest
@@ -35,6 +36,8 @@ Component Testing (Vitest, Vue Test Utils)
       - [`.fails`](https://vitest.dev/api/#test-fails): indicate that an assertion will fail explicitly;
   - [`expect`](https://vitest.dev/api/#expect): used to create assertions;
   - [`toBe`](https://vitest.dev/api/#tobe): can be used to assert if primitives are equal or that objects share the same reference;
+  - [`beforeEach`](https://vitest.dev/api/#beforeeach): Register a callback to be called before each of the test in the current content runs. This will greatly reduce code repetition by extract reused props, store, element, etc.
+  
 
 ----------------------------------------------------
 #### Vue Test Utils:
@@ -60,7 +63,7 @@ ________________________________________________________
 
 - end-to-end testing:
   - [cypress](https://www.cypress.io/)
-  - [Plywright](https://playwright.dev/)
+  - [Playwright](https://playwright.dev/)
 
 #### Cypress:
 - Lectures: [Implement the same test with cypress](https://www.youtube.com/watch?v=nLBwVOJDT1I)
