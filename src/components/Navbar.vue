@@ -23,7 +23,7 @@ async function logout() {
   <div class="navbar mx-6">
     <div class="navbar-end">
       <div v-if="usersStore.currentUserId" class="buttons">
-        <button class="button is-danger is-outlined" @click="logout()">
+        <button data-testId="logout" class="button is-danger is-outlined" @click="logout()">
           Log out
           <i class="fa-solid fa-right-from-bracket ml-3" />
         </button>

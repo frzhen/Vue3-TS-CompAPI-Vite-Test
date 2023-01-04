@@ -4,13 +4,18 @@
  * @Email: fred.zhen@gmail.com
  */
 import { mount } from '@vue/test-utils';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import Navbar from './Navbar.vue';
 import {createPinia, Pinia, setActivePinia} from "pinia";
 import {createMemoryHistory, createRouter, Router} from "vue-router";
 import { routes } from "../routers";
 import { useUsers } from "../store/users";
 
+
+// similar to jest.fn, vi.fn mock the window.fetch function
+vi.stubGlobal('fetch', vi.fn(() => {
+  // this is a fake fetch function for testing only
+}));
 describe('Navbar', () => {
   let pinia: Pinia;
   let router: Router;
@@ -56,5 +61,10 @@ describe('Navbar', () => {
     // console.log(wrapper.html());
     expect(wrapper.find('a').text()).toBe('New Post');
     expect(wrapper.find('button').text()).toBe('Log out');
+    // click logout
+    await wrapper.find('[data-testId="logout"]').trigger('click');
+    // console.log(wrapper.html());
+    expect(wrapper.find('#register').exists()).toBe(true);
+    expect(wrapper.find('[data-testId="login"]').exists()).toBe(true);
   });
 });

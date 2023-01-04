@@ -37,6 +37,16 @@ Component Testing (Vitest, Vue Test Utils)
   - [`expect`](https://vitest.dev/api/#expect): used to create assertions;
   - [`toBe`](https://vitest.dev/api/#tobe): can be used to assert if primitives are equal or that objects share the same reference;
   - [`beforeEach`](https://vitest.dev/api/#beforeeach): Register a callback to be called before each of the test in the current content runs. This will greatly reduce code repetition by extract reused props, store, element, etc.
+- [Mocking](https://vitest.dev/guide/mocking.html) with `vi` in the form of `vi.fn`:
+  - [Global](https://vitest.dev/guide/mocking.html#globals): `vi.stubGlobal`;
+    - Example:
+    ```typescript
+    // similar to jest.fn, vi.fn mock the window.fetch function
+    vi.stubGlobal('fetch', vi.fn(() => {
+       // this is a fake fetch function for testing only
+    }));
+    ```
+  > Mocking the  mission-critical authentication function with mocking is not ideal. A better solution is to utilize end-to-end testing.
   
 
 ----------------------------------------------------
@@ -50,7 +60,7 @@ Component Testing (Vitest, Vue Test Utils)
   - [`text`](https://test-utils.vuejs.org/api/#text): Returns the text content of an element;
   - [`setValue`](https://test-utils.vuejs.org/api/#setvalue): Sets a value on DOM element, including `<input>`, `<select>`;
   - [`global`](https://test-utils.vuejs.org/api/#global):
-    - [`global.plugins](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
+    - [`global.plugins`](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
 - ##### [Testing Teleport](https://test-utils.vuejs.org/guide/advanced/teleport.html)
 ________________________________________________________
 #### Additional test notes:
