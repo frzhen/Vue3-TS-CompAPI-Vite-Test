@@ -61,6 +61,7 @@ Component Testing (Vitest, Vue Test Utils)
   - [`setValue`](https://test-utils.vuejs.org/api/#setvalue): Sets a value on DOM element, including `<input>`, `<select>`;
   - [`global`](https://test-utils.vuejs.org/api/#global):
     - [`global.plugins`](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
+  - 【`trigger`](https://test-utils.vuejs.org/api/#trigger): trigger a DOM event, i.e.`click`, `submit` or `keyup`.
 - ##### [Testing Teleport](https://test-utils.vuejs.org/guide/advanced/teleport.html)
 ________________________________________________________
 #### Additional test notes:

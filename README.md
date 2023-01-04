@@ -60,7 +60,7 @@ A Complete Vue3 Composition API in TypeScript
       * @Date: ${DATE} ${TIME}
       * @Email: fred.zhen@gmail.com
     -->
-    <script setup lang="ts">
+    <script lang="ts" setup>
     
     </script>
     
