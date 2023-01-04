@@ -45,7 +45,7 @@ export function length({min, max}: {min: number, max: number}): Rule {
   }
 }
 
-// local test: "npx ts-node-esm src/utils/validation.ts"
+// local tests: "npx ts-node-esm src/utils/validation.ts"
 // console.log(
 //   validate('', [required]),
 //   validate('username', [required]),

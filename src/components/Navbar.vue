@@ -33,7 +33,7 @@ async function logout() {
         </RouterLink>
       </div>
       <div v-else class="buttons">
-        <button id="register" class="button is-danger is-outlined" @click="modal.showModal(authenticatingType.register)">
+        <button data-test-id="register" class="button is-danger is-outlined" @click="modal.showModal(authenticatingType.register)">
           <i class="fa-solid fa-user-plus mr-3" />
           Register
         </button>

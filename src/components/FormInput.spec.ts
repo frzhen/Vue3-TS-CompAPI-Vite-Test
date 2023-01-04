@@ -9,9 +9,9 @@ import FormInput from './FormInput.vue';
 import {computed, defineComponent, ref} from "vue";
 
 describe("FormInput", () => {
-  // larger and a completed test
-  // use it.only to only execute this test
-  it("test validation", async () => {
+  // larger and a completed tests
+  // use it.only to only execute this tests
+  it("tests validation", async () => {
     const Parent = defineComponent({
       components: { FormInput },
       template: `

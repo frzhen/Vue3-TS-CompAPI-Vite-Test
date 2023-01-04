@@ -43,7 +43,7 @@ describe('Navbar', () => {
     });
 
     // console.log(wrapper.html());
-    expect(wrapper.find('#register').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="register"]').exists()).toBe(true);
     expect(wrapper.find('[data-test-id="login"]').exists()).toBe(true);
   });
   it("renders logout and new post buttons when authenticated", async () => {
@@ -64,7 +64,7 @@ describe('Navbar', () => {
     // click logout
     await wrapper.find('[data-test-id="logout"]').trigger('click');
     // console.log(wrapper.html());
-    expect(wrapper.find('#register').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="register"]').exists()).toBe(true);
     expect(wrapper.find('[data-test-id="login"]').exists()).toBe(true);
 
     await wrapper.find('[data-test-id="login"]').trigger('click');

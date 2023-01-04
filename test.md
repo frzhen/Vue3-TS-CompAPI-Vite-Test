@@ -36,6 +36,8 @@ Component Testing (Vitest, Vue Test Utils)
       - [`.fails`](https://vitest.dev/api/#test-fails): indicate that an assertion will fail explicitly;
   - [`expect`](https://vitest.dev/api/#expect): used to create assertions;
   - [`toBe`](https://vitest.dev/api/#tobe): can be used to assert if primitives are equal or that objects share the same reference;
+  - [`toEqual`](https://vitest.dev/api/#toequal): asserts if actual value is equal to received one. If the received value is an object, it will compare the structure.
+  > Mind the difference between `toEqual` and `toBe`.
   - [`beforeEach`](https://vitest.dev/api/#beforeeach): Register a callback to be called before each of the test in the current content runs. This will greatly reduce code repetition by extract reused props, store, element, etc.
 - [Mocking](https://vitest.dev/guide/mocking.html) with `vi` in the form of `vi.fn`:
   - [Global](https://vitest.dev/guide/mocking.html#globals): `vi.stubGlobal`;
@@ -62,6 +64,7 @@ Component Testing (Vitest, Vue Test Utils)
   - [`global`](https://test-utils.vuejs.org/api/#global):
     - [`global.plugins`](https://test-utils.vuejs.org/api/#global-plugins): Installs plugins on the mounted component;
   - 【`trigger`](https://test-utils.vuejs.org/api/#trigger): trigger a DOM event, i.e.`click`, `submit` or `keyup`.
+  - [`emitted`](https://test-utils.vuejs.org/api/#emitted): Returns all the emitted events from the component;
 - ##### [Testing Teleport](https://test-utils.vuejs.org/guide/advanced/teleport.html)
 ________________________________________________________
 #### Additional test notes:

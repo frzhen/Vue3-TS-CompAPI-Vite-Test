@@ -48,8 +48,8 @@ async function handleSubmit() {
 </script>
 <template>
   <form class="form" @submit.prevent="handleSubmit">
-    <FormInput type="text" name="UserName" v-model="username" :status="usernameStatus"/>
-    <FormInput type="password" name="Password" v-model="password" :status="passwordStatus"/>
+    <FormInput data-test-id="username" type="text" name="UserName" v-model="username" :status="usernameStatus"/>
+    <FormInput data-test-id="password" type="password" name="Password" v-model="password" :status="passwordStatus"/>
     <div v-if="error" class="is-danger help">
       {{ error }}
     </div>
