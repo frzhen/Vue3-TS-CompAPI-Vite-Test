@@ -37,7 +37,7 @@ async function handleLogin (newUser: NewUser) {
 }
 </script>
 <template>
-  <UserForm @submit="handleLogin" :error="error"/>
+  <UserForm data-test-id="login-form" @submit="handleLogin" :error="error"/>
 </template>
 
 <style lang='scss' scoped>

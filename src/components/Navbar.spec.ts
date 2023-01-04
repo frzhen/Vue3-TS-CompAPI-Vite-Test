@@ -44,9 +44,9 @@ describe('Navbar', () => {
 
     // console.log(wrapper.html());
     expect(wrapper.find('#register').exists()).toBe(true);
-    expect(wrapper.find('[data-testId="login"]').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="login"]').exists()).toBe(true);
   });
-  it("renders logout and newpost buttons when authenticated", async () => {
+  it("renders logout and new post buttons when authenticated", async () => {
     // add users store
     const users = useUsers();
     // mock a user
@@ -62,9 +62,14 @@ describe('Navbar', () => {
     expect(wrapper.find('a').text()).toBe('New Post');
     expect(wrapper.find('button').text()).toBe('Log out');
     // click logout
-    await wrapper.find('[data-testId="logout"]').trigger('click');
+    await wrapper.find('[data-test-id="logout"]').trigger('click');
     // console.log(wrapper.html());
     expect(wrapper.find('#register').exists()).toBe(true);
-    expect(wrapper.find('[data-testId="login"]').exists()).toBe(true);
+    expect(wrapper.find('[data-test-id="login"]').exists()).toBe(true);
+
+    await wrapper.find('[data-test-id="login"]').trigger('click');
+    // Teleport is outside the navbar, thus us global api instead
+    expect(document.body.querySelector('[data-test-id="login-form"]')).toBeTruthy();
+    // console.log(document.body.outerHTML);
   });
 });
