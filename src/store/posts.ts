@@ -7,7 +7,7 @@ import { defineStore } from 'pinia';
 import {today, thisWeek, thisMonth} from "../utils/1time_use";
 import {Period, apiUrl} from "../utils/constants";
 import {DateTime} from "luxon";
-import {Post, TimelinePost} from "../utils/interfaces";
+import {Post} from "../utils/interfaces";
 
 const postsUrl = `${apiUrl}/posts`;
 // reactive for complex object, {}, map, set
@@ -70,7 +70,7 @@ export const usePosts = defineStore("posts", {
     },
   },
   getters: {
-    filteredPosts: (state: PostsState): TimelinePost[] => {
+    filteredPosts: (state: PostsState): Post[] => {
       return state.ids
         .map( id => {
           const post = state.all.get(id);
@@ -78,18 +78,16 @@ export const usePosts = defineStore("posts", {
           if (!post) {
             throw new Error(`Post with id of ${id} was expected but not found.`)
           }
-          return {
-            ...post,
-            created: DateTime.fromISO(post.created)
-          }})
+          return post;
+          })
         .filter(post => {
           if (state.selectedPeriod === "Today") {
-            return post.created >= DateTime.now().minus({day: 1});
+            return DateTime.fromISO(post.created) >= DateTime.now().minus({day: 1});
           }
           if (state.selectedPeriod === "This Week") {
-            return (post.created >= DateTime.now().minus({week: 1}));
+            return DateTime.fromISO(post.created) >= DateTime.now().minus({week: 1});
           }
-          return post
+          return post;
         });
     }
   }

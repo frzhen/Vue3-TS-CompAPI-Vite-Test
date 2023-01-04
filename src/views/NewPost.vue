@@ -5,7 +5,7 @@
 -->
 <script lang="ts" setup>
 import PostWriter from "../components/PostWriter.vue";
-import {Post, TimelinePost} from "../utils/interfaces";
+import {Post} from "../utils/interfaces";
 import { DateTime } from "luxon";
 import {useUsers} from "../store/users";
 import {useRouter} from "vue-router";
@@ -19,11 +19,11 @@ if (!usersStore.currentUserId) {
   throw Error('User was not found');
 }
 
-const post: TimelinePost = {
+const post: Post = {
   id: "-1",
   title: "Title",
   authorId: usersStore.currentUserId,
-  created: DateTime.now(),
+  created: DateTime.now().toISO(),
   markdown: '## Title',
   html: '<h2>Title</h2>'
 }

@@ -4,7 +4,7 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script lang="ts" setup>
-import {Post, TimelinePost} from "../utils/interfaces";
+import {Post} from "../utils/interfaces";
 import { ref, onMounted,  watch } from "vue";
 import {parseHTML} from "../utils/parseHTML";
 import { debounce } from "lodash";
@@ -13,7 +13,7 @@ import { useRouter } from "vue-router";
 import { useUsers } from "../store/users";
 
 const props = defineProps<{
-  post: TimelinePost | Post,
+  post: Post,
 }>();
 
 const emit = defineEmits<{
@@ -55,7 +55,8 @@ const savePost = async () => {
   }
   const newPost: Post = {
     ...props.post,
-    created: typeof props.post.created === 'string' ? props.post.created : props.post.created.toISO(),
+    created: props.post.created,
+      // typeof props.post.created === 'string' ? props.post.created : props.post.created.toISO(),
     title: title.value,
     authorId: usersStore.currentUserId,
     markdown: content.value,
@@ -63,13 +64,6 @@ const savePost = async () => {
   };
   emit('submit', newPost);
 }
-
-const topDownLayout = ref(false);
-
-function toggleLayout() {
-  topDownLayout.value = !topDownLayout.value;
-}
-
 </script>
 
 <template>
@@ -93,7 +87,9 @@ function toggleLayout() {
               </div>
             </div>
             <div class="panel-block">
-              <div contenteditable
+              <div
+                data-test-id="contenteditable"
+                contenteditable
                    ref="contentEditable"
                    @input="handleInput"
               />
@@ -114,8 +110,10 @@ function toggleLayout() {
     </div>
     <div class="card-footer">
       <div class="card-footer-item is-justify-content-end">
-        <button class="button is-primary "
-                @click="savePost"
+        <button
+          data-test-id="save-post"
+          class="button is-primary "
+          @click="savePost"
         >
           Save Post
         </button>

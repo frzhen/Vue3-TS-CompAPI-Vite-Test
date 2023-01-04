@@ -4,10 +4,11 @@
   * @Email: fred.zhen@gmail.com
 -->
 <script lang="ts" setup>
-import { TimelinePost } from "../utils/interfaces";
+import { Post } from "../utils/interfaces";
+import { DateTime } from "luxon";
 
 defineProps<{
-  post: TimelinePost
+  post: Post
 }>();
 
 </script>
@@ -17,7 +18,7 @@ defineProps<{
     :to="`/posts/${post.id}`"
     class="panel-block is-flex is-flex-direction-column is-align-items-flex-start">
     <a>{{ post.title }}</a>
-    <div>{{ post.created.toFormat("d MMM") }}</div>
+    <div>{{ DateTime.fromISO(post.created).toFormat("d MMM") }}</div>
   </RouterLink>
 </template>
 
