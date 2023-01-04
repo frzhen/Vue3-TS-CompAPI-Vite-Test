@@ -34,11 +34,12 @@ Component Testing (Vitest, Vue Test Utils)
       - [`.runIf`](https://vitest.dev/api/#test-runif): run when a condition is met;
       - [`.todo`](https://vitest.dev/api/#test-todo): means to implement the test later, an entry will show on report;
       - [`.fails`](https://vitest.dev/api/#test-fails): indicate that an assertion will fail explicitly;
-  - [`expect`](https://vitest.dev/api/#expect): used to create assertions;
-  - [`toBe`](https://vitest.dev/api/#tobe): can be used to assert if primitives are equal or that objects share the same reference;
-  - [`toEqual`](https://vitest.dev/api/#toequal): asserts if actual value is equal to received one. If the received value is an object, it will compare the structure.
-  > Mind the difference between `toEqual` and `toBe`.
-  - [`beforeEach`](https://vitest.dev/api/#beforeeach): Register a callback to be called before each of the test in the current content runs. This will greatly reduce code repetition by extract reused props, store, element, etc.
+  - [expect](https://vitest.dev/api/#expect): used to create assertions;
+    - [`toBe`](https://vitest.dev/api/#tobe): can be used to assert if primitives are equal or that objects share the same reference;
+    - [`toEqual`](https://vitest.dev/api/#toequal): asserts if actual value is equal to received one. If the received value is an object, it will compare the structure.
+    > Mind the difference between `toEqual` and `toBe`.
+    - [`toMatchInlineSnapshot`](https://vitest.dev/api/#tomatchinlinesnapshot): ensures that a value matches the most recent snapshot and Vitest automatically adds and updates the inlineSnapshot string argument to the matcher in the test file (instead of an external .snap file).
+  - [beforeEach](https://vitest.dev/api/#beforeeach): Register a callback to be called before each of the test in the current content runs. This will greatly reduce code repetition by extract reused props, store, element, etc.
 - [Mocking](https://vitest.dev/guide/mocking.html) with `vi` in the form of `vi.fn`:
   - [Global](https://vitest.dev/guide/mocking.html#globals): `vi.stubGlobal`;
     - Example:
