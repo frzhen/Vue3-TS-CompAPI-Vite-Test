@@ -151,6 +151,7 @@ A Complete Vue3 Composition API in TypeScript
 - prod-vite-configuration: configure vite proxy to let both frontend and backend run on the same port, similar to production environment
 - prod: production deployment branch
 - Vitest: unit testing with [Vitest](https://vitest.dev/)
+- Cypress: All tests implementations with cypress
 -------------------------------------------------------------
 
 ### [Key learnings points 学习要点：](key_learning_points.md)

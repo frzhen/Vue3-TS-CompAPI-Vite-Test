@@ -23,7 +23,7 @@ async function logout() {
   <div class="navbar mx-6">
     <div class="navbar-end">
       <div v-if="usersStore.currentUserId" class="buttons">
-        <button data-test-id="logout" class="button is-danger is-outlined" @click="logout()">
+        <button class="button is-danger is-outlined" @click="logout()">
           Log out
           <i class="fa-solid fa-right-from-bracket ml-3" />
         </button>
@@ -33,11 +33,11 @@ async function logout() {
         </RouterLink>
       </div>
       <div v-else class="buttons">
-        <button data-test-id="register" class="button is-danger is-outlined" @click="modal.showModal(authenticatingType.register)">
+        <button class="button is-danger is-outlined" @click="modal.showModal(authenticatingType.register)">
           <i class="fa-solid fa-user-plus mr-3" />
           Register
         </button>
-        <button data-test-id="login" class="button is-primary is-outlined" @click="modal.showModal(authenticatingType.logIn)">
+        <button class="button is-primary is-outlined" @click="modal.showModal(authenticatingType.logIn)">
           <i class="fa-solid fa-right-to-bracket mr-3" />
           Log in
         </button>

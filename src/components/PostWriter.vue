@@ -88,7 +88,6 @@ const savePost = async () => {
             </div>
             <div class="panel-block">
               <div
-                data-test-id="contenteditable"
                 contenteditable
                    ref="contentEditable"
                    @input="handleInput"
@@ -111,7 +110,6 @@ const savePost = async () => {
     <div class="card-footer">
       <div class="card-footer-item is-justify-content-end">
         <button
-          data-test-id="save-post"
           class="button is-primary "
           @click="savePost"
         >
