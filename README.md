@@ -155,3 +155,4 @@ A Complete Vue3 Composition API in TypeScript
 
 ### [Key learnings points 学习要点：](key_learning_points.md)
 ### [Component Testing with Vitest and Vue Test Utils](test.md)
+## [Tests with Cypress](cypress.md)
