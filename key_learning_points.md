@@ -109,3 +109,5 @@ Key learnings points 学习要点：
     - checkout one of the branch, and Select project root folder, and right click `Git->Compare with branch`
 - [Environment Variables, or Keeping Your Secrets in a Node.js App](https://medium.com/codait/environment-variables-or-keeping-your-secrets-secret-in-a-node-js-app-99019dfff716)
 - web application security: [Cross Site Request Forgery(CSRF)](https://owasp.org/www-community/attacks/csrf)
+- use `meta` and `beforeEach` in router to prevent unauthenticated page access(`/routers/index.ts`):
+  > [Block Unauthenticated Access to Pages with Vue Router Navigation Guards](https://egghead.io/lessons/vue-js-block-unauthenticated-access-to-pages-with-vue-router-navigation-guards)

@@ -27,7 +27,6 @@ const posts = usePosts();
 const router = useRouter();
 const usersStore = useUsers();
 
-// watchEffect(() => parseHTML(content.value, html));
 watch(content, debounce((newContent)=>{
   parseHTML(newContent, html);
 }, 300), {
