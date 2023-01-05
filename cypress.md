@@ -3,7 +3,15 @@ Test with Cypress
 
 #### installation:
 - `npm i -D cypress@latest`
+> cypress test with vite project still rely on 
 
+#### run test:
+- `cypress install` to install the cypress on your local machine
+- `npx cypress open` and the cypress local app opens:
+- Choose your test type and configure the test
+> current vite version is 4.0.4 and cypress require 3. However, you can skip this and still works. If something wrong, you might need to downgrade vite to lower version.
+
+_______________________________
 1. ### Unit Test:
 2. ### Component Test:
 3. ### Integration Test:
