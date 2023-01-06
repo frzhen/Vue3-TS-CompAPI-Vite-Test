@@ -32,6 +32,9 @@ _______________________________
      - `it`
      - `.only()`
      - `.skip()`
+   - ##### Chai Bundled Library:
+     - [`expect`](https://www.chaijs.com/guide/styles/#expect)
+     > Chai also provide two other assertion types
 3. ### Integration Test:
 4. ### End-to-End Test:
 
