@@ -14,6 +14,7 @@ Test with Cypress
 _______________________________
 1. ### Unit Test:
 2. ### Component Test:
+- Cypress use default [Mocha]
 3. ### Integration Test:
 4. ### End-to-End Test:
 
