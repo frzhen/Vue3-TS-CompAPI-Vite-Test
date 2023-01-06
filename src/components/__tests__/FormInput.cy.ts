@@ -34,5 +34,22 @@ describe("FormInput", () => {
     });
     cy.get('[role="alert"]').should('contain.text', 'Invalid username');
   });
+  it("responds to input", () => {
+    const stub = cy.stub();
+    mount(FormInput, {
+      props: {
+        name: "username",
+        modelValue: "lachlan",
+        type: "text",
+        status: {
+          valid: true
+        },
+        'onUpdate:modelValue': stub
+      }
+    });
+    cy.get('input').clear().type('test').then(() => {
+      expect(stub).to.have.been.calledWith('tesr');
+    });
+  });
 
 })
