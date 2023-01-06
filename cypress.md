@@ -1,6 +1,11 @@
 Test with Cypress 
 =================
 
+### prerequisites: 
+- Vue Test Utils has been installed;
+- downgrade vite to '3.2.5'
+- downgrade @vitejs/plugin-vue to '3.2.0'
+
 #### installation:
 - `npm i -D cypress@latest`
 > cypress test with vite project still rely on 
@@ -14,7 +19,19 @@ Test with Cypress
 _______________________________
 1. ### Unit Test:
 2. ### Component Test:
-- Cypress use default [Mocha]
+   - Cypress adopted [Mocha](https://mochajs.org/) bdd syntax to build test features:
+   - [stub](https://docs.cypress.io/api/commands/stub): Replace a function, record its usage and control its behavior.
+     ```typescript
+     cy.stub()
+     cy.stub(object, method)
+     cy.stub(object, method, replaceFn)
+     ```
+   - [get](https://docs.cypress.io/api/commands/get): Get one or more DOM element by selector or alias.
+   - ##### [Mocha Bundled Library](https://mochajs.org/#bdd):
+     - `describe`
+     - `it`
+     - `.only()`
+     - `.skip()`
 3. ### Integration Test:
 4. ### End-to-End Test:
 
